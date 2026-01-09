@@ -1,0 +1,131 @@
+.content {
+  max-width: var(--content-width);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-secondary);
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  color: var(--fg);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.content h1 {
+  font-size: var(--text-2xl);
+}
+
+.content h2 {
+  font-size: var(--text-xl);
+}
+
+.content h3 {
+  font-size: var(--text-lg);
+}
+
+.content p {
+  margin-bottom: var(--space-4);
+}
+
+.content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content a:hover {
+  color: var(--accent-hover);
+}
+
+.content ul,
+.content ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.content li {
+  margin-bottom: var(--space-2);
+}
+
+.content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-4);
+  margin: var(--space-6) 0;
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+.content pre {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.content code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: var(--text-sm);
+}
+
+.content :not(pre) > code {
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.content img {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  margin: var(--space-6) 0;
+}
+
+.embed {
+  margin: var(--space-6) 0;
+}
+
+.embedFrame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.embedFrame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-8) 0;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+}
+
+.content th,
+.content td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.content th {
+  font-weight: var(--font-semibold);
+  color: var(--fg);
+}
