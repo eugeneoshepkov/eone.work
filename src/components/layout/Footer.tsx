@@ -2,9 +2,17 @@ import { GithubLogoIcon, LinkedinLogoIcon, EnvelopeIcon } from '@phosphor-icons/
 import styles from './Footer.module.css';
 
 const socialLinks = [
-  { href: 'https://github.com/eone', icon: GithubLogoIcon, label: 'GitHub' },
-  { href: 'https://linkedin.com/in/evgeny-Oshchepkov', icon: LinkedinLogoIcon, label: 'LinkedIn' },
-  { href: 'mailto:me@eone.work', icon: EnvelopeIcon, label: 'Email' },
+  {
+    href: "https://github.com/eugeneoshepkov",
+    icon: GithubLogoIcon,
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/evgeny-Oshchepkov",
+    icon: LinkedinLogoIcon,
+    label: "LinkedIn",
+  },
+  { href: "mailto:me@eone.work", icon: EnvelopeIcon, label: "Email" },
 ];
 
 export function Footer() {
