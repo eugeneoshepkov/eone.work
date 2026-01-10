@@ -6,7 +6,9 @@ tags: [Design, Engineering]
 featured: false
 ---
 
-I've built or contributed to design systems at every company I've worked at. One felt like a superpower. Another turned into a parts bin nobody trusted. The pattern was consistent.
+I've built or contributed to design systems at every company I've worked at. At ImmoScout24, the system felt like a superpower — we could ship new listing page variants in hours instead of days. At an earlier startup, the system turned into a parts bin nobody trusted. Same idea, opposite outcomes.
+
+The pattern was consistent: the ones that worked had tight constraints. The ones that rotted had too many options.
 
 ## The components aren't the system
 
@@ -28,7 +30,6 @@ Before writing any React components, define your tokens:
 
 ```css
 :root {
-  /* Spacing - 4px grid, limited set */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -36,13 +37,11 @@ Before writing any React components, define your tokens:
   --space-6: 24px;
   --space-8: 32px;
 
-  /* Colors - semantic, not descriptive */
   --fg: #0a0a0a;
   --fg-muted: #737373;
   --bg: #fafafa;
   --accent: #f97316;
 
-  /* Radius - consistent, limited */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
@@ -56,7 +55,9 @@ Notice what's NOT here:
 
 Constraints are features.
 
-This clicked for me in music first. When I was teaching myself, the fastest progress came from arbitrary limits (four chords, five synth patches, “finish in two hours”). Tokens and scales do the same thing for UI: they turn taste into defaults.
+This clicked for me in music first. When I was learning guitar at 15, I'd spend hours noodling without finishing anything. Then I started setting arbitrary limits: four chords only, finish in two hours, use only the bridge pickup. Suddenly I was completing songs. The constraints killed decision paralysis.
+
+Tokens and scales do the same thing for UI. They turn taste into defaults. When you only have 8 spacing values and 5 colors, you stop debating and start building.
 
 ## The 4px grid is non-negotiable
 
@@ -66,6 +67,8 @@ Every spacing value should be a multiple of 4:
 Why? Because it creates visual rhythm. Things align. Spacing feels intentional, not random.
 
 When designers and engineers both think in 4px increments, communication gets easier. "Can we add a bit more space?" becomes "Should this be 16 or 24?"
+
+At ImmoScout24, adopting a strict 4px grid across the Exposé pages cut our design review time in half. Fewer arguments about "a little more padding here."
 
 ## Symmetrical padding matters more than you think
 
@@ -83,12 +86,12 @@ When top/bottom/left/right don't match, cards look unbalanced. Users can't artic
 
 If you need different horizontal and vertical padding, make it intentional:
 ```css
-padding: 12px 16px; /* Slightly more horizontal room */
+padding: 12px 16px;
 ```
 
 Not:
 ```css
-padding: 13px 17px 11px 18px; /* What is happening */
+padding: 13px 17px 11px 18px;
 ```
 
 ## Color is for meaning, not decoration
@@ -100,9 +103,11 @@ In a good system, color communicates:
 - Accent = interactive/actionable
 - Everything else = gray
 
-If your UI has 47 colors, none of them mean anything. Users can't build mental models of what colors indicate.
+If your UI has 47 colors, none of them mean anything.
 
-I've seen dashboards where success could be green, blue, or purple depending on who built that component. Chaotic.
+At TourRadar, I inherited a dashboard where "success" could be green, blue, or purple depending on who built that component. One engineer used blue for positive metrics because it matched the brand. Another used green because it was "obviously" success. A third used purple because blue was already taken for links. Users had no idea what any of it meant.
+
+We spent a full sprint just consolidating colors. That's the tax you pay when constraints aren't set upfront.
 
 ## Typography hierarchy, not typography variety
 
@@ -114,19 +119,16 @@ You need:
 That's it.
 
 ```css
-/* Headlines */
 --text-xl: 24px;
 --text-lg: 18px;
-
-/* Body */
 --text-md: 16px;
 --text-base: 14px;
-
-/* Small */
 --text-sm: 12px;
 ```
 
 When I see systems with 12 font sizes and 6 weights, I know decisions are being deferred to individual components. That's how inconsistency creeps in.
+
+It's like a band where everyone picks their own reverb settings. The parts might sound good in isolation, but the mix is a mess.
 
 ## Build for composition, not configuration
 
@@ -185,6 +187,10 @@ The system should make the 80% case trivial, not make the 20% case impossible.
 
 ## Systems that grow vs. systems that rot
 
+At one company (I'll spare them the name), I watched a design system grow from 40 components to 400+ over three years. By the end, only about 50 were actually used in production. The rest were variants somebody asked for once, edge cases that never recurred, or abandoned experiments nobody deleted.
+
+Every new hire had to wade through the graveyard to find the real components. The system had become the thing slowing people down.
+
 Healthy systems:
 - Have a small core that's tightly controlled
 - Allow extension through composition
@@ -194,10 +200,9 @@ Healthy systems:
 Unhealthy systems:
 - Add variants for every request
 - Never deprecate anything
-- Have components nobody uses
 - Become "too big to refactor"
 
-I've seen 3-year-old design systems with 400+ components where only 50 are actually used. The rest are tech debt.
+If you never delete from your design system, it's already rotting.
 
 ## The goal is consistency, not control
 
