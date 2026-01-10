@@ -27,6 +27,7 @@ body {
   min-height: 100dvh;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   padding-bottom: env(safe-area-inset-bottom);
+  overflow-x: hidden;
 }
 
 /* Typography */
