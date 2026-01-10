@@ -10,6 +10,8 @@ I've led or participated in major migrations at ImmoScout24, TourRadar, and othe
 
 The code is the visible part. The people part determines whether it ships.
 
+I’ve done a few migrations outside code too (countries, careers). Same lesson: never big bang.
+
 ## The technical part is the easy part
 
 Sounds counterintuitive. You're replacing a massive legacy system with modern tech. There's database migrations, API changes, deployment strategies, rollback plans.

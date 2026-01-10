@@ -16,7 +16,7 @@ Exage - Dried By Time (Official Music Video)
 
 https://youtu.be/5MSZXmbNoLg?si=EhgD4Cdrpfq7ptzO
 
-Exage - Ergot In The Rye (Guitar Playthrough) - the song I wrote end to end (muisc and lyrics)
+Exage - Ergot In The Rye (Guitar Playthrough) - the song I wrote end to end (music and lyrics)
 
 https://youtu.be/an4gtPLFtuE?si=-6sk5fjDaoKBuRH3
 
@@ -57,6 +57,22 @@ Debugging is the same. The bug manifests in one place but originates somewhere e
 
 I got good at debugging partly because mixing trained me to think about systems as chains of dependent processes.
 
+## If it only sounds good in your room, it’s not done
+
+The cruel part about mixing is “translation”.
+
+Something can sound massive in studio headphones and turn into mush on cheap earbuds. Or disappear on a phone speaker. Or become painfully harsh on a car stereo.
+
+So you test where it lives:
+- In mono
+- Quiet volume
+- Different speakers
+- A/B against a reference track
+
+Software is the same. Your laptop is studio monitors. Production is the car test.
+
+If your feature only works on your machine, it doesn’t work. Test on slow devices, flaky networks, real data, weird browsers. That’s where the truth is.
+
 ## The 80/20 of polish
 
 That last 20% of a track — getting the perfect reverb tail, automating volume micro-adjustments, the subtle compression moves — takes 80% of the time. Most listeners won't notice. But *you* notice, and that's what separates amateur from professional.
@@ -77,11 +93,29 @@ In software:
 
 Constraints kill decision paralysis. When everything is possible, nothing gets done.
 
+## Commit to the bounce
+
+A DAW makes everything reversible. That’s both the magic and the trap.
+
+If you keep 70 tracks, 40 plugins, and everything “just in case”, you never finish. You’re always one tweak away from a different track.
+
+Producers commit. Print the take. Bounce the stems. Freeze the synth. Not because it’s objectively better — because it reduces degrees of freedom.
+
+In software, it’s the same move: lock an API, choose defaults, delete options, ship. You can still iterate later, but you stop pretending you’ll keep every path open forever.
+
 ## Reference tracks and reference architectures
 
 No professional producer starts from scratch. They load up reference tracks — songs they admire — and A/B compare throughout the mixing process. It's not copying, it's calibration.
 
 Engineers do this with architecture. Before designing a system, I look at how others solved similar problems. Open source codebases are our reference tracks. AWS case studies are our production notes.
+
+## Taste is trained, not gifted
+
+In music, “taste” looks mysterious from the outside. In reality it’s reps.
+
+You train your ear by comparing, stealing small ideas, and noticing what feels wrong. Over time, your default choices get better. You reach for fewer knobs, not more.
+
+Code is like that too. Taste shows up in names, boundaries, and tradeoffs. It comes from shipping, reading good code, and being honest about what didn’t work last time.
 
 ## The arrangement is the architecture
 
@@ -104,6 +138,14 @@ In engineering teams:
 - Ego kills teams faster than lack of skill
 
 The dynamics are identical.
+
+## Your ears get tired. So do your decisions.
+
+When you mix too long, you lose perspective. Your ears adapt and suddenly you’re over-correcting. You start “fixing” things that weren’t broken.
+
+Coding has the same failure mode. Past a point, you’re not improving the system — you’re just making it different.
+
+The simplest fix is boring: take breaks. Come back tomorrow. Ship smaller chunks. Review with fresh eyes.
 
 ## Know when to stop
 

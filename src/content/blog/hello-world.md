@@ -16,6 +16,8 @@ Product-minded Software Engineer (10+ years), currently based in Vienna. I like 
 
 Outside work I make music — mostly self-taught since I was 15 — and it’s where I learned to be comfortable shipping ugly drafts and iterating fast.
 
+Originally from Aktau, Kazakhstan. Moved to Saint Petersburg at 18 to study engineering. My story: [From Aktau to Vienna](/blog/from-aktau-to-vienna).
+
 ## What I do
 
 My day-to-day is mostly:
@@ -39,6 +41,7 @@ If you want a starting point:
 - [Design Systems Are Just Good Constraints](/blog/design-systems)
 - [What I Learned Shipping LLM Features to Production](/blog/llm-production-lessons)
 - [The Art of Migrating Legacy Systems Without Losing Your Mind](/blog/migrating-legacy-systems)
+- [What Music Production Taught Me About Software Engineering](/blog/music-production-software-engineering)
 
 ## Let's connect
 
