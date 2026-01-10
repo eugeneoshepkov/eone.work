@@ -10,8 +10,10 @@
   transition: color var(--transition-fast);
 }
 
-.backLink:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .backLink:hover {
+    color: var(--accent);
+  }
 }
 
 .header {
@@ -69,9 +71,11 @@
   transition: all var(--transition-fast);
 }
 
-.primaryLink:hover {
-  background: var(--accent-hover);
-  color: var(--bg);
+@media (hover: hover) {
+  .primaryLink:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+  }
 }
 
 .secondaryLink {
@@ -89,10 +93,12 @@
   transition: all var(--transition-fast);
 }
 
-.secondaryLink:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-hover);
-  color: var(--fg);
+@media (hover: hover) {
+  .secondaryLink:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+    color: var(--fg);
+  }
 }
 
 .imageWrapper {

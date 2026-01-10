@@ -10,8 +10,10 @@
   transition: color var(--transition-fast);
 }
 
-.backLink:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .backLink:hover {
+    color: var(--accent);
+  }
 }
 
 .header {

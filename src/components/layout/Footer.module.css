@@ -28,9 +28,11 @@
   transition: all var(--transition-fast);
 }
 
-.socialLink:hover {
-  color: var(--fg);
-  background: var(--bg-hover);
+@media (hover: hover) {
+  .socialLink:hover {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
 }
 
 .copyright {

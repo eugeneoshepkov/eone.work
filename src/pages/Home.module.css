@@ -73,14 +73,16 @@
   filter: blur(8px);
 }
 
-.primaryButton:hover {
-  background: var(--accent-hover);
-  color: var(--bg);
-  transform: translateY(-1px);
-}
+@media (hover: hover) {
+  .primaryButton:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+    transform: translateY(-1px);
+  }
 
-.primaryButton:hover::before {
-  opacity: 0.6;
+  .primaryButton:hover::before {
+    opacity: 0.6;
+  }
 }
 
 .secondaryButton {
@@ -98,10 +100,12 @@
   transition: all var(--transition-fast);
 }
 
-.secondaryButton:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-hover);
-  color: var(--fg);
+@media (hover: hover) {
+  .secondaryButton:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+    color: var(--fg);
+  }
 }
 
 .section {
@@ -145,8 +149,10 @@
   transition: color var(--transition-fast);
 }
 
-.sectionLink:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .sectionLink:hover {
+    color: var(--accent);
+  }
 }
 
 .postsGrid {

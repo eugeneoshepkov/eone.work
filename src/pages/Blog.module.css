@@ -48,8 +48,10 @@
   transition: color var(--transition-fast);
 }
 
-.clearFilter:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .clearFilter:hover {
+    color: var(--accent);
+  }
 }
 
 .grid {

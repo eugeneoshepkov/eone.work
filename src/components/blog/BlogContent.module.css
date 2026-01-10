@@ -36,8 +36,10 @@
   text-underline-offset: 2px;
 }
 
-.content a:hover {
-  color: var(--accent-hover);
+@media (hover: hover) {
+  .content a:hover {
+    color: var(--accent-hover);
+  }
 }
 
 .content ul,

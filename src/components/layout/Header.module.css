@@ -31,9 +31,11 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.logoWrap:hover .avatar {
-  border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+@media (hover: hover) {
+  .logoWrap:hover .avatar {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+  }
 }
 
 .logo {
@@ -63,9 +65,11 @@
   transition: all var(--transition-fast);
 }
 
-.navLink:hover {
-  color: var(--fg);
-  background: var(--bg-hover);
+@media (hover: hover) {
+  .navLink:hover {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
 }
 
 .navLink.active {

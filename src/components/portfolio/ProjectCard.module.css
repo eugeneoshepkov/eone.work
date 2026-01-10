@@ -20,18 +20,20 @@
   z-index: 1;
 }
 
-.card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.1);
-}
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.1);
+  }
 
-.card:hover::before {
-  opacity: 1;
-}
+  .card:hover::before {
+    opacity: 1;
+  }
 
-.card:hover .arrow {
-  transform: translate(2px, -2px);
+  .card:hover .arrow {
+    transform: translate(2px, -2px);
+  }
 }
 
 .link {
@@ -53,8 +55,10 @@
   transition: transform var(--transition-slow);
 }
 
-.card:hover .image {
-  transform: scale(1.02);
+@media (hover: hover) {
+  .card:hover .image {
+    transform: scale(1.02);
+  }
 }
 
 .content {

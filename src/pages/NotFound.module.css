@@ -37,7 +37,9 @@
   transition: all var(--transition-fast);
 }
 
-.link:hover {
-  background: var(--accent-hover);
-  color: var(--bg);
+@media (hover: hover) {
+  .link:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+  }
 }

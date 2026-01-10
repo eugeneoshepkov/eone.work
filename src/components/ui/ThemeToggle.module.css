@@ -12,10 +12,12 @@
   transition: all var(--transition-fast);
 }
 
-.toggle:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-hover);
-  color: var(--fg);
+@media (hover: hover) {
+  .toggle:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+    color: var(--fg);
+  }
 }
 
 .toggle:active {

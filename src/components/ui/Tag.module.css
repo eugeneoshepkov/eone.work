@@ -10,9 +10,11 @@
   transition: all var(--transition-fast);
 }
 
-.tag:hover {
-  background: var(--accent);
-  color: var(--bg);
+@media (hover: hover) {
+  .tag:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
 }
 
 .active {
