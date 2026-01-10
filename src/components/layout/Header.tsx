@@ -12,8 +12,11 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.container}`}>
-        <Link to="/" className={styles.logo}>
-          eone<span className={styles.accent}>.work</span>
+        <Link to="/" className={styles.logoWrap}>
+          <img src="/avatar-bw.png" alt="" className={styles.avatar} />
+          <span className={styles.logo}>
+            eone<span className={styles.accent}>.work</span>
+          </span>
         </Link>
 
         <nav className={styles.nav}>

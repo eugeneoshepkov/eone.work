@@ -1,13 +1,33 @@
 .card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, transparent 50%, var(--accent-muted) 50%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
 }
 
 .card:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.1);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .link {

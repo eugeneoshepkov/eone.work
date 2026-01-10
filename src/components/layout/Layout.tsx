@@ -12,6 +12,7 @@ interface LayoutProps {
 export function Layout({ theme, onToggleTheme }: LayoutProps) {
   return (
     <div className={styles.layout}>
+      <div className={styles.ambientBg} aria-hidden="true" />
       <Header theme={theme} onToggleTheme={onToggleTheme} />
       <main className={styles.main}>
         <Outlet />

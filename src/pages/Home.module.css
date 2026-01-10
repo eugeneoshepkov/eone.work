@@ -3,6 +3,21 @@
   padding: var(--space-16) 0;
   max-width: 720px;
   margin: 0 auto;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--accent-muted) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .heroTitle {
@@ -43,11 +58,29 @@
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: all var(--transition-fast);
+  position: relative;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-md) + 2px);
+  background: linear-gradient(135deg, #fb923c, #ea580c);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-fast);
+  filter: blur(8px);
 }
 
 .primaryButton:hover {
   background: var(--accent-hover);
   color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.primaryButton:hover::before {
+  opacity: 0.6;
 }
 
 .secondaryButton {
@@ -80,6 +113,20 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-6);
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.sectionHeader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  border-radius: 2px;
 }
 
 .sectionTitle {
