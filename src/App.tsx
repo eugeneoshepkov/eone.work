@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { Home } from '@/pages/Home';
 import { Blog } from '@/pages/Blog';
 import { BlogPostPage } from '@/pages/BlogPost';
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout theme={theme} onToggleTheme={toggleTheme} />}>
           <Route index element={<Home />} />
