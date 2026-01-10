@@ -2,10 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
-  background: rgba(var(--bg), 0.8);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
 }
 
 .container {
@@ -16,16 +15,32 @@
   gap: var(--space-6);
 }
 
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.logoWrap:hover .avatar {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
 .logo {
   font-size: var(--text-md);
   font-weight: var(--font-semibold);
   color: var(--fg);
   letter-spacing: var(--tracking-tight);
-  text-decoration: none;
-}
-
-.logo:hover {
-  color: var(--fg);
 }
 
 .accent {

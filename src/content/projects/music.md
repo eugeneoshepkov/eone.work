@@ -17,7 +17,7 @@ Exage - Dried By Time (Official Music Video)
 
 https://youtu.be/5MSZXmbNoLg?si=EhgD4Cdrpfq7ptzO
 
-Exage - Ergot In The Rye (Guitar Playthrough) — the song I wrote
+Exage - Ergot In The Rye (Guitar Playthrough) — the song I wrote end to end (music and lyrics). Btw, that's me on guitar in the preview shot
 
 https://youtu.be/an4gtPLFtuE?si=-6sk5fjDaoKBuRH3
 
