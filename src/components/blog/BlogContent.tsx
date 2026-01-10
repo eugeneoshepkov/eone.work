@@ -1,5 +1,6 @@
 import { isValidElement, type ReactElement } from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import styles from './BlogContent.module.css';
 
@@ -37,6 +38,7 @@ export function BlogContent({ content }: BlogContentProps) {
     <div className={styles.content}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeHighlight]}
         components={{
           p: ({ children }) => {
             const arr = Array.isArray(children) ? children : [children];

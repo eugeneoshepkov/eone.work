@@ -131,3 +131,88 @@
   font-weight: var(--font-semibold);
   color: var(--fg);
 }
+
+:global([data-theme="dark"]) .content {
+  --code-hljs-fg: #e5e7eb;
+  --code-hljs-comment: var(--fg-muted);
+  --code-hljs-keyword: var(--accent-hover);
+  --code-hljs-string: #86efac;
+  --code-hljs-number: #93c5fd;
+  --code-hljs-title: #e9d5ff;
+  --code-hljs-type: #67e8f9;
+  --code-hljs-variable: #fcd34d;
+  --code-hljs-attr: #60a5fa;
+  --code-hljs-meta: var(--fg-secondary);
+  --code-hljs-symbol: #fda4af;
+}
+
+:global([data-theme="light"]) .content {
+  --code-hljs-fg: #111827;
+  --code-hljs-comment: #6b7280;
+  --code-hljs-keyword: var(--accent);
+  --code-hljs-string: #15803d;
+  --code-hljs-number: #1d4ed8;
+  --code-hljs-title: #6d28d9;
+  --code-hljs-type: #0e7490;
+  --code-hljs-variable: #b45309;
+  --code-hljs-attr: #1d4ed8;
+  --code-hljs-meta: #374151;
+  --code-hljs-symbol: #be123c;
+}
+
+.content :global(code.hljs) {
+  color: var(--code-hljs-fg);
+}
+
+.content :global(.hljs-comment),
+.content :global(.hljs-quote) {
+  color: var(--code-hljs-comment);
+  font-style: italic;
+}
+
+.content :global(.hljs-keyword),
+.content :global(.hljs-literal),
+.content :global(.hljs-selector-tag),
+.content :global(.hljs-built_in) {
+  color: var(--code-hljs-keyword);
+}
+
+.content :global(.hljs-string),
+.content :global(.hljs-regexp) {
+  color: var(--code-hljs-string);
+}
+
+.content :global(.hljs-number),
+.content :global(.hljs-bullet) {
+  color: var(--code-hljs-number);
+}
+
+.content :global(.hljs-title),
+.content :global(.hljs-title.function_),
+.content :global(.hljs-title.class_) {
+  color: var(--code-hljs-title);
+}
+
+.content :global(.hljs-type) {
+  color: var(--code-hljs-type);
+}
+
+.content :global(.hljs-variable),
+.content :global(.hljs-params) {
+  color: var(--code-hljs-variable);
+}
+
+.content :global(.hljs-attr),
+.content :global(.hljs-property),
+.content :global(.hljs-attribute) {
+  color: var(--code-hljs-attr);
+}
+
+.content :global(.hljs-meta),
+.content :global(.hljs-doctag) {
+  color: var(--code-hljs-meta);
+}
+
+.content :global(.hljs-symbol) {
+  color: var(--code-hljs-symbol);
+}
