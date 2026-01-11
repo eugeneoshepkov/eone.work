@@ -54,7 +54,7 @@ export function About() {
             Currently based in Vienna, I specialize in TypeScript, React, and
             Node.js, with a growing focus on AI-driven integrations and LLMs.
             I've helped build products at companies like Embeddable,
-            ImmoScout24, and TourRadar — modernizing legacy systems, building
+            ImmoScout24, and TourRadar - modernizing legacy systems, building
             SDKs, and shipping AI-enhanced analytics features.
           </p>
           <p className={styles.text}>

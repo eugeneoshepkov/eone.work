@@ -6,7 +6,7 @@ tags: [Engineering]
 featured: true
 ---
 
-Hey — welcome.
+Hey - welcome.
 
 I’m Evgeny Oshchepkov. I build web products where “engineering” and “product” collide: public APIs, developer experience, performance, and the messy parts of shipping.
 
@@ -14,7 +14,7 @@ I’m Evgeny Oshchepkov. I build web products where “engineering” and “pro
 
 Product-minded Software Engineer (10+ years), currently based in Vienna. I like work that’s equal parts architecture and pragmatism: ship fast, don’t break users, and keep the codebase sane.
 
-Outside work I make music — mostly self-taught since I was 15 — and it’s where I learned to be comfortable shipping ugly drafts and iterating fast.
+Outside work I make music - mostly self-taught since I was 15 - and it’s where I learned to be comfortable shipping ugly drafts and iterating fast.
 
 Originally from Aktau, Kazakhstan. Moved to Saint Petersburg at 18 to study engineering. My story: [From Aktau to Vienna](/blog/from-aktau-to-vienna).
 
@@ -22,10 +22,10 @@ Originally from Aktau, Kazakhstan. Moved to Saint Petersburg at 18 to study engi
 
 My day-to-day is mostly:
 
-- **Building SDKs** — public APIs, versioning, docs, ergonomics
-- **AI integrations** — LLM features that survive real users and real data
-- **Technical leadership** — mentoring, reviews, raising the bar without slowing teams down
-- **Performance optimization** — making things fast, then preventing regressions
+- **Building SDKs** - public APIs, versioning, docs, ergonomics
+- **AI integrations** - LLM features that survive real users and real data
+- **Technical leadership** - mentoring, reviews, raising the bar without slowing teams down
+- **Performance optimization** - making things fast, then preventing regressions
 
 ## What to expect here
 

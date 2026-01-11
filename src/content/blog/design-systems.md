@@ -6,7 +6,7 @@ tags: [Design, Engineering]
 featured: false
 ---
 
-I've built or contributed to design systems at every company I've worked at. At ImmoScout24, the system felt like a superpower — we could ship new listing page variants in hours instead of days. At an earlier startup, the system turned into a parts bin nobody trusted. Same idea, opposite outcomes.
+I've built or contributed to design systems at every company I've worked at. At ImmoScout24, the system felt like a superpower - we could ship new listing page variants in hours instead of days. At an earlier startup, the system turned into a parts bin nobody trusted. Same idea, opposite outcomes.
 
 The pattern was consistent: the ones that worked had tight constraints. The ones that rotted had too many options.
 
@@ -157,7 +157,7 @@ Better API:
 </Button>
 ```
 
-Components should be small and composable. Configuration props lead to combinatorial explosion — 10 props with 3 options each = 59,049 variants to test.
+Components should be small and composable. Configuration props lead to combinatorial explosion - 10 props with 3 options each = 59,049 variants to test.
 
 ## The best documentation is colocated examples
 
@@ -208,7 +208,7 @@ If you never delete from your design system, it's already rotting.
 
 Design systems succeed when they make the right thing easy. They fail when they make everything hard.
 
-If engineers are constantly fighting the system, working around it, or avoiding it entirely — the system has failed. Not the engineers.
+If engineers are constantly fighting the system, working around it, or avoiding it entirely - the system has failed. Not the engineers.
 
 Build systems that feel like help, not handcuffs.
 

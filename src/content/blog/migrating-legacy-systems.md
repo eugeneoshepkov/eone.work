@@ -6,7 +6,7 @@ tags: [Engineering]
 featured: false
 ---
 
-I've led or participated in major migrations at ImmoScout24, TourRadar, and other companies — millions of users, zero downtime, and a team that still had to ship features while the foundation moved under them.
+I've led or participated in major migrations at ImmoScout24, TourRadar, and other companies - millions of users, zero downtime, and a team that still had to ship features while the foundation moved under them.
 
 The code is the visible part. The people part determines whether it ships.
 
@@ -56,7 +56,7 @@ Every migration needs:
 
 We ran new and old systems in parallel for months. 1% of traffic, then 5%, then 25%, then 50%. Problems surfaced early, at low blast radius.
 
-At 10% traffic during the ImmoScout24 migration, we discovered the new system was slightly slower on certain property types. Found it in metrics, fixed it, confirmed the fix — all before 90% of users ever saw the new code. Without feature flags, that would have been a production incident.
+At 10% traffic during the ImmoScout24 migration, we discovered the new system was slightly slower on certain property types. Found it in metrics, fixed it, confirmed the fix - all before 90% of users ever saw the new code. Without feature flags, that would have been a production incident.
 
 ## Measure obsessively
 
@@ -99,7 +99,7 @@ Legacy systems are full of "why is this here?" code. Before changing anything, d
 - Integration points and their quirks
 - Performance characteristics and bottlenecks
 
-At TourRadar, I found a function that seemed useless — no obvious callers, weird logic, no comments. Deleted it. Turns out it handled a specific payment provider's retry behavior for failed transactions in certain currencies. Took two weeks to figure out why refunds were silently failing. That was a $50k lesson in understanding before deleting.
+At TourRadar, I found a function that seemed useless - no obvious callers, weird logic, no comments. Deleted it. Turns out it handled a specific payment provider's retry behavior for failed transactions in certain currencies. Took two weeks to figure out why refunds were silently failing. That was a $50k lesson in understanding before deleting.
 
 Don't delete what you don't understand. Understand first.
 
@@ -128,7 +128,7 @@ Migrations create awkward intermediate states:
 
 This is fine. It's temporary. The goal is safe transition, not beautiful intermediate states.
 
-It feels like writing a new song. When my band was working on new material, there was always a phase where the song was just noise — half-formed riffs, placeholder lyrics, wrong tempo, conflicting ideas. If you judged it at that stage, you'd trash it. But that messy phase is where the song figures out what it wants to be. You have to let it be ugly long enough to find its shape.
+It feels like writing a new song. When my band was working on new material, there was always a phase where the song was just noise - half-formed riffs, placeholder lyrics, wrong tempo, conflicting ideas. If you judged it at that stage, you'd trash it. But that messy phase is where the song figures out what it wants to be. You have to let it be ugly long enough to find its shape.
 
 Migrations are the same. The codebase will look bad for a while. That's the cost of not breaking everything at once.
 
@@ -154,13 +154,13 @@ The question isn't "is this code old?" It's "is this code causing problems we ne
 
 Every long migration follows a pattern:
 
-1. **Excitement** — "We're finally fixing this!"
-2. **Discovery** — "Oh, it's more complex than we thought"
-3. **The Pit** — "This is taking forever and nothing works"
-4. **Momentum** — "Wait, things are actually improving"
-5. **Victory** — "We did it, and it's better"
+1. **Excitement** - "We're finally fixing this!"
+2. **Discovery** - "Oh, it's more complex than we thought"
+3. **The Pit** - "This is taking forever and nothing works"
+4. **Momentum** - "Wait, things are actually improving"
+5. **Victory** - "We did it, and it's better"
 
-The Pit is where migrations die. At ImmoScout24, we hit The Pit around month 4. The new system worked for most pages but kept breaking on edge cases — unusual property types, legacy data formats, features nobody remembered adding. Morale dropped. People started questioning if we should just revert.
+The Pit is where migrations die. At ImmoScout24, we hit The Pit around month 4. The new system worked for most pages but kept breaking on edge cases - unusual property types, legacy data formats, features nobody remembered adding. Morale dropped. People started questioning if we should just revert.
 
 We pushed through by narrowing scope. Instead of trying to handle every edge case, we kept the old system running for the weird 5% and focused on migrating the normal 95%. The edge cases got picked off one by one over the following months.
 

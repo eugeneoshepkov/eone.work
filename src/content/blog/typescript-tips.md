@@ -1,6 +1,6 @@
 ---
 title: TypeScript Patterns That Changed How I Code
-description: After 8 years of TypeScript, these are the patterns I reach for daily. Not academic type theory — practical techniques that make codebases better.
+description: After 8 years of TypeScript, these are the patterns I reach for daily. Not academic type theory - practical techniques that make codebases better.
 date: 2025-03-18
 tags: [TypeScript, Engineering]
 featured: false
@@ -22,7 +22,7 @@ interface State {
 }
 ```
 
-Classic React state shape. The problem: nothing stopped you from having `isLoading: true` and `error: someError` at the same time. We had exactly that bug — a loading spinner that never went away because an error set `error` but forgot to set `isLoading: false`.
+Classic React state shape. The problem: nothing stopped you from having `isLoading: true` and `error: someError` at the same time. We had exactly that bug - a loading spinner that never went away because an error set `error` but forgot to set `isLoading: false`.
 
 Better:
 
@@ -77,7 +77,7 @@ function getTeam(teamId: TeamId) { ... }
 getUser(teamId); // ❌ Type error at compile time
 ```
 
-The `__brand` property doesn't exist at runtime — it's a phantom type. But TypeScript treats `UserId` and `TeamId` as incompatible, so you can't mix them.
+The `__brand` property doesn't exist at runtime - it's a phantom type. But TypeScript treats `UserId` and `TeamId` as incompatible, so you can't mix them.
 
 The catch: if you sprinkle `as UserId` everywhere, you lost. Brand at boundaries (API response parsers, DB query results) and keep the rest of your code clean. The types should flow through naturally.
 
@@ -103,7 +103,7 @@ function handleState(state: State): string {
 }
 ```
 
-If you add a new status later — say, `'retrying'` — TypeScript will error on that `never` assignment until you handle it.
+If you add a new status later - say, `'retrying'` - TypeScript will error on that `never` assignment until you handle it.
 
 At ImmoScout24, we used this for a booking state machine with 8 states. When product added a 9th state, TypeScript flagged every switch statement that needed updating. Refactor took an hour instead of a week of finding bugs in production.
 
@@ -125,7 +125,7 @@ const endpoints: Endpoint[] = [
 ];
 ```
 
-We introduced this at Scout24 after finding inconsistencies in API documentation — some endpoints were lowercase, some had different prefixes. The template literal type caught about a dozen inconsistencies in one PR.
+We introduced this at Scout24 after finding inconsistencies in API documentation - some endpoints were lowercase, some had different prefixes. The template literal type caught about a dozen inconsistencies in one PR.
 
 ## Type inference over explicit types
 
@@ -149,7 +149,7 @@ const users = data.map((item) => ({
 }));
 ```
 
-Explicit types belong at function boundaries and exports — the public API of your module. Internal code should let inference do its job.
+Explicit types belong at function boundaries and exports - the public API of your module. Internal code should let inference do its job.
 
 It's like mixing a song. You don't need to manually set the volume on every track if your gain staging is right. You set levels at the key points and let the rest flow through.
 
@@ -165,7 +165,7 @@ const STATUS_CODES = {
 } as const;
 ```
 
-Without `as const`, the type would be `{ OK: number; NOT_FOUND: number; ERROR: number }`. With it, you get `{ readonly OK: 200; readonly NOT_FOUND: 404; readonly ERROR: 500 }` — literal values, readonly properties.
+Without `as const`, the type would be `{ OK: number; NOT_FOUND: number; ERROR: number }`. With it, you get `{ readonly OK: 200; readonly NOT_FOUND: 404; readonly ERROR: 500 }` - literal values, readonly properties.
 
 This matters when you want to use those values in type positions or ensure nobody accidentally mutates your constants.
 

@@ -10,7 +10,7 @@ I've spent an embarrassing amount of time on Suno. What started as curiosity abo
 
 ## The prompt is everything
 
-Most people write prompts like "a sad song about love." That gets you exactly what you'd expect — forgettable, generic output. The magic is in specificity.
+Most people write prompts like "a sad song about love." That gets you exactly what you'd expect - forgettable, generic output. The magic is in specificity.
 
 **Bad prompt:**
 > A rock song about being tired
@@ -37,7 +37,7 @@ Keep it concrete, avoid abstractions
 Build tension here
 
 [Chorus]
-Your hook — make it memorable and singable
+Your hook - make it memorable and singable
 
 [Verse 2]
 Develop the narrative
@@ -72,10 +72,10 @@ The `[Instrumental]` and `[Break]` tags are your friends for adding breathing ro
 
 Here's where my software background helps. I treat Suno like any other system:
 
-1. **Start with a hypothesis** — What specific sound am I going for?
-2. **Test one variable at a time** — Change the genre descriptor, keep lyrics the same
-3. **Save your winners** — Build a personal library of prompts that work
-4. **Extend what works** — Use the extend feature on promising generations
+1. **Start with a hypothesis** - What specific sound am I going for?
+2. **Test one variable at a time** - Change the genre descriptor, keep lyrics the same
+3. **Save your winners** - Build a personal library of prompts that work
+4. **Extend what works** - Use the extend feature on promising generations
 
 I keep a notes file with successful prompt patterns. It's basically prompt engineering, but for music.
 
@@ -93,11 +93,11 @@ The AI is only as good as the words you feed it. A few principles:
 - Physical: "cold feet on bathroom tiles"
 
 **Tell a story in the chorus**
-The best hooks aren't just emotions — they're moments. "We were dancing in the kitchen at 2am" beats "I love you so much."
+The best hooks aren't just emotions - they're moments. "We were dancing in the kitchen at 2am" beats "I love you so much."
 
 ## My current workflow
 
-1. Write lyrics in a text editor first — don't compose in Suno's box
+1. Write lyrics in a text editor first - don't compose in Suno's box
 2. Add structure tags
 3. Write a detailed style prompt (50-100 words). Use the template above if you blank
 4. Generate 4-5 variations
@@ -106,7 +106,7 @@ The best hooks aren't just emotions — they're moments. "We were dancing in the
 
 ## The uncanny valley
 
-AI music has a "tell" — everything is slightly too perfect, too polished. Sometimes I intentionally add imperfection cues:
+AI music has a "tell" - everything is slightly too perfect, too polished. Sometimes I intentionally add imperfection cues:
 
 - "slightly out of tune"
 - "live room sound"
@@ -119,17 +119,17 @@ These make the output feel more organic.
 
 I was a bedroom producer before AI tools existed. I spent years learning DAWs, sound design, mixing. Some might say AI generation cheapens music creation.
 
-I see it differently. It's a new instrument. The creative decisions — what to say, what mood to create, what story to tell — are still mine. Suno handles the execution, I handle the vision.
+I see it differently. It's a new instrument. The creative decisions - what to say, what mood to create, what story to tell - are still mine. Suno handles the execution, I handle the vision.
 
 And honestly? It's fun. I've made more music in the last six months than in the previous six years of traditional production.
 
 ## Where this ends up for me
 
-I use AI tools as a fast sketchpad. Some of the results I release under Caspian Ghost — Russian lyrics, because it makes it more personal.
+I use AI tools as a fast sketchpad. Some of the results I release under Caspian Ghost - Russian lyrics, because it makes it more personal.
 
 Caspian Ghost on Spotify: [Caspian Ghost](https://open.spotify.com/artist/3AkhqYgQXec1r3TXQ77XVe?si=GWrUYWtaS_qyE3wvUx_O_A).
 
-Caspian Ghost - Пепел (Official Visualizer) — I built this visualizer with AI in minutes
+Caspian Ghost - Пепел (Official Visualizer) - I built this visualizer with AI in minutes
 
 https://youtu.be/S_fsmwlmKOo?si=Ngx95bhLt7tTkN2K
 

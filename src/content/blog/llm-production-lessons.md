@@ -16,10 +16,10 @@ Demo: "Show me revenue by month"
 → Works perfectly, stakeholders clap, budget approved
 
 Production:
-- "can u show rev monthly?" — typos, abbreviations
-- "Show me the thing we looked at yesterday" — context you don't have
-- "Revenue but only for products we still sell" — business logic the model doesn't know
-- "更多收入数据" — users who don't speak English
+- "can u show rev monthly?" - typos, abbreviations
+- "Show me the thing we looked at yesterday" - context you don't have
+- "Revenue but only for products we still sell" - business logic the model doesn't know
+- "更多收入数据" - users who don't speak English
 
 This is exactly like music production. A mix can sound massive in your studio headphones and completely collapse on a cheap Bluetooth speaker or a club PA. The controlled environment lies to you. Demos are headphones. Production is the venue with bad acoustics and a crowd that doesn't care how hard you worked on the hi-hats.
 
@@ -70,14 +70,14 @@ We built a prompt testing framework that runs the same 200 queries against every
 
 ## Fallbacks are not optional
 
-LLMs fail. Not sometimes — regularly. You need:
+LLMs fail. Not sometimes - regularly. You need:
 
-1. **Input validation** — Catch obviously bad queries before wasting API calls
-2. **Timeout handling** — Set aggressive timeouts, have fallbacks
-3. **Confidence scoring** — If the model isn't sure, don't pretend it is
-4. **Graceful degradation** — Show a helpful error, not a stack trace
-5. **Human escalation** — Let users report issues, actually read the reports
-6. **Telemetry + replay** — Capture inputs/outputs so you can debug and build evaluation datasets
+1. **Input validation** - Catch obviously bad queries before wasting API calls
+2. **Timeout handling** - Set aggressive timeouts, have fallbacks
+3. **Confidence scoring** - If the model isn't sure, don't pretend it is
+4. **Graceful degradation** - Show a helpful error, not a stack trace
+5. **Human escalation** - Let users report issues, actually read the reports
+6. **Telemetry + replay** - Capture inputs/outputs so you can debug and build evaluation datasets
 
 Our error rate dropped 60% when we added a simple "I'm not sure I understood that. Did you mean X, Y, or Z?" response for low-confidence outputs. Users preferred being asked to clarify over getting a wrong chart.
 
@@ -98,7 +98,7 @@ It's like the difference between a live show and a studio recording. Live, you c
 
 With 128k context windows, it's tempting to dump everything in. Don't.
 
-We tried the "give it everything" approach early on. Full schema. All business rules. Last 10 conversations. Documentation excerpts. Response quality actually got worse — the model started hallucinating connections between unrelated tables, probably because we'd given it too many options.
+We tried the "give it everything" approach early on. Full schema. All business rules. Last 10 conversations. Documentation excerpts. Response quality actually got worse - the model started hallucinating connections between unrelated tables, probably because we'd given it too many options.
 
 **Bad pattern:**
 ```
@@ -146,7 +146,7 @@ Some things don't need LLMs:
 - High-stakes decisions → require human confirmation
 - Anything with existing reliable solutions → don't over-engineer
 
-We added AI to 6 features. We removed it from 2 after realizing simpler approaches worked better. One was a date range parser — turns out a handful of regex patterns handled 95% of cases faster and more reliably than an LLM call.
+We added AI to 6 features. We removed it from 2 after realizing simpler approaches worked better. One was a date range parser - turns out a handful of regex patterns handled 95% of cases faster and more reliably than an LLM call.
 
 ## The tech is moving faster than you can ship
 

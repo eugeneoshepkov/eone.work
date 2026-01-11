@@ -14,4 +14,5 @@ node_modules
 
 .cursorrules
 
+.cursor
 tsconfig.tsbuildinfo

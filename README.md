@@ -1,14 +1,14 @@
 # eone.work
 
-Personal website and blog for Evgeny Oshchepkov — software engineer based in Vienna.
+Personal website and blog for Evgeny Oshchepkov - software engineer based in Vienna.
 
 ## Tech Stack
 
-- **Vite** — Build tool & dev server
-- **React 19** — UI framework
-- **TypeScript** — Type safety
-- **React Router** — Client-side routing
-- **Markdown** — Blog posts with frontmatter
+- **Vite** - Build tool & dev server
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **React Router** - Client-side routing
+- **Markdown** - Blog posts with frontmatter
 
 ## Project Structure
 
@@ -91,7 +91,7 @@ See `CONTENT_STYLE.md` for writing guidelines.
 
 ## Deployment
 
-Static site — deploy to Vercel, Netlify, or any static host:
+Static site - deploy to Vercel, Netlify, or any static host:
 
 ```bash
 pnpm build

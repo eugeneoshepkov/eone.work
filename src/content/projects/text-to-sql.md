@@ -29,10 +29,10 @@ Business users struggle with SQL and most dashboard builders are powerful-but-cl
 
 At a high level the pipeline looked like:
 
-1. **Intent parsing** — what the user wants to see
-2. **Schema linking** — mapping domain language to columns/tables
-3. **SQL generation** — optimized PostgreSQL queries
-4. **Chart selection** — choose the right visualization and formatting
+1. **Intent parsing** - what the user wants to see
+2. **Schema linking** - mapping domain language to columns/tables
+3. **SQL generation** - optimized PostgreSQL queries
+4. **Chart selection** - choose the right visualization and formatting
 
 ## Example
 
