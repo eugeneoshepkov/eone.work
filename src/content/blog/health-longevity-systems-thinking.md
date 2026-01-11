@@ -3,7 +3,7 @@ title: Debugging Your Body: What Longevity Research Taught Me About Systems Thin
 description: How "Why We Sleep" and "Outlive" changed my approach to health - and why optimizing for longevity feels a lot like maintaining production systems.
 date: 2026-01-11
 tags: [Engineering, Health]
-featured: false
+featured: true
 ---
 
 Your body is a distributed system running in production for 80+ years. No downtime allowed. Limited observability. You can't rewrite it from scratch. And most people treat it like legacy code - ignore it until something breaks, then panic-fix.
