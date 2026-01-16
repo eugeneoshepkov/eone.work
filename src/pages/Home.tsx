@@ -22,8 +22,8 @@ export function Home() {
           Based in Vienna.
         </p>
         <div className={styles.heroCta}>
-          <Link to="/projects" className={styles.primaryButton}>
-            View Projects
+          <Link to="/blog" className={styles.primaryButton}>
+            Read Blog
             <ArrowRightIcon size={16} />
           </Link>
           <Link to="/about" className={styles.secondaryButton}>

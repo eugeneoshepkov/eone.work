@@ -1,14 +1,18 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeftIcon, CalendarBlankIcon, ClockIcon } from '@phosphor-icons/react';
+import { ArrowLeftIcon, CalendarBlankIcon, ClockIcon, ArrowRightIcon } from '@phosphor-icons/react';
 import { format } from 'date-fns';
 import { BlogContent } from '@/components/blog/BlogContent';
+import { BlogCard } from '@/components/blog/BlogCard';
 import { Tag } from '@/components/ui/Tag';
-import { getBlogPost } from '@/lib/content';
+import { getBlogPost, getBlogPosts } from '@/lib/content';
 import styles from './BlogPost.module.css';
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getBlogPost(slug) : undefined;
+  const otherPosts = getBlogPosts()
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
 
   if (!post) {
     return (
@@ -56,6 +60,23 @@ export function BlogPostPage() {
       </header>
 
       <BlogContent content={post.content} />
+
+      {otherPosts.length > 0 && (
+        <section className={styles.otherPosts}>
+          <div className={styles.otherPostsHeader}>
+            <h2 className={styles.otherPostsTitle}>Other Posts</h2>
+            <Link to="/blog" className={styles.otherPostsLink}>
+              View all
+              <ArrowRightIcon size={14} />
+            </Link>
+          </div>
+          <div className={styles.otherPostsGrid}>
+            {otherPosts.map((p) => (
+              <BlogCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      )}
     </article>
   );
 }

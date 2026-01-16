@@ -6,70 +6,33 @@ tags: [Engineering, Music]
 featured: true
 ---
 
-I grew up in Aktau, Kazakhstan.
+I grew up in Aktau, Kazakhstan - a desert city on the Caspian Sea that only exists because of a nuclear reactor.
 
-At 18 I moved to Saint Petersburg to study engineering. I didn’t know a single person in the city.
+At 18 I moved to Saint Petersburg for engineering school. I knew no one. The first years were rough.
 
-Those were the hardest years in my life.
+But I'd already found two things that kept me going: programming and music.
 
-They also shaped how I learn and build: small loops, fast feedback, no magic.
+## Programming
 
-## Programming was my first obsession
+I got hooked at 14. You write a few lines, the computer does something it couldn't do before. That was enough to keep me at it for hours.
 
-I got hooked on programming at 14.
+## Music
 
-The feeling was addictive: you write a few lines, the computer does something it couldn’t do before. Instant feedback. Instant failure too.
+A year later I picked up guitar. No lessons. I taught myself guitar, singing, and techniques I probably should've learned "properly". At some point I figured out how to do metal screaming on inhale.
 
-That loop stuck with me. Break it. Fix it. Repeat.
+I was bad for a long time. But being bad in public taught me to experiment without protecting my ego.
 
-## Music hit with the same force
+## Starting from zero
 
-A year later I got obsessed with music the same way.
+No network. No momentum. Just a huge city and a lot of free time between classes.
 
-No formal education. I taught myself guitar, singing, and a lot of techniques I probably should’ve learned “properly”. At some point I even figured out how to do metal screaming on inhale.
+I filled it with small software projects. Not impressive, not portfolio-perfect. Just things that shipped. Over time that compounds into a career.
 
-I was bad for a long time. And I had to hear it.
+## Now
 
-That was the point.
+Today I'm based in Vienna. Married, two kids.
 
-Being a rookie in public taught me to experiment without protecting my ego.
-
-## Moving cities is a migration with no rollback
-
-Moving to Saint Petersburg at 18 wasn’t romantic.
-
-It was me, a huge city, and zero social surface area.
-
-I didn’t have a network. I didn’t have momentum. I had to build both while studying.
-
-I learned to treat “hard years” like a system problem:
-
-- Reduce scope until you can move
-- Build routines that don’t rely on motivation
-- Put yourself in places where feedback is real
-
-## My career started as tiny, unsexy projects
-
-While studying and doing music, I started building small software projects.
-
-Not impressive. Not portfolio-perfect. Just things that shipped.
-
-Each one did two jobs:
-
-- It taught me something concrete
-- It proved to me I could finish
-
-Over time that compounds into a career.
-
-## I still run on feedback loops
-
-Today I’m based in Vienna.
-
-I work like I always have: clarity, constraints, iteration. I like building things that ship and survive real users.
-
-I also apply the same mindset outside work. I’m pretty data-driven about health: I track, I run boring experiments, I keep what works. It’s the same loop again.
-
-I’m married, I have two kids, and it’s the best constraint I’ve ever had. It forces me to cut the noise.
+I like building things that ship and survive real users. I apply the same approach outside work too - I'm pretty data-driven about health, tracking what works and dropping what doesn't.
 
 ## If you’re in your “start from zero” phase
 
