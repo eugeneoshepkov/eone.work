@@ -40,6 +40,15 @@ export function BlogContent({ content }: BlogContentProps) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
+          img: ({ src, alt }) => {
+            // If showing a thumbnail, link to full size
+            const fullSrc = src?.includes('-thumb.') ? src.replace('-thumb.', '.') : src;
+            return (
+              <a href={fullSrc} target="_blank" rel="noopener noreferrer" className={styles.imageLink}>
+                <img src={src} alt={alt || ''} loading="lazy" className={styles.image} />
+              </a>
+            );
+          },
           p: ({ children }) => {
             const arr = Array.isArray(children) ? children : [children];
             if (arr.length === 1 && isValidElement(arr[0]) && arr[0].type === 'a') {

@@ -81,6 +81,25 @@
   border: 1px solid var(--border);
 }
 
+.imageLink {
+  display: block;
+  margin: var(--space-6) 0;
+  text-decoration: none;
+}
+
+.image {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  transition: opacity var(--transition-fast);
+  cursor: zoom-in;
+}
+
+@media (hover: hover) {
+  .imageLink:hover .image {
+    opacity: 0.9;
+  }
+}
+
 .content img {
   max-width: 100%;
   border-radius: var(--radius-lg);

@@ -120,15 +120,7 @@ Four days from initial commit to playable game.
 
 ## Screenshots
 
-![Gameplay showing the isometric city with reactor, distillers, and housing](placeholder: gameplay-overview.png)
-
-![Building placement preview with green ghost and dashed connection pipes](placeholder: building-preview.png)
-
-![Resource HUD showing seawater, fresh water, heat, electricity, population, happiness](placeholder: resource-hud.png)
-
-![Pipe connections between buildings](placeholder: pipe-connections.png)
-
-![Game over screen with meltdown narrative](placeholder: game-over.png)
+![Gameplay showing the isometric city with reactor, distillers, and housing](https://aktau.eone.work/pictures/screenshots/day4-thumb.png)
 
 ## Status: Work in Progress
 

@@ -49,21 +49,21 @@ The novel part: I could think at the design level without getting stuck in imple
 
 Here's what the git log looks like:
 
-**Day 1 (Jan 12):** Initial commit. Core game mechanics. Building placement. Resource production. Reactor temperature system.
+**Day 1:** Initial commit. Core game mechanics. Building placement. Resource production. Reactor temperature system.
 
-![Day 1 - Core mechanics and building placement](placeholder: day1-screenshot.png)
+![Day 1 - Core mechanics and building placement](https://aktau.eone.work/pictures/screenshots/day1-thumb.png)
 
-**Day 2 (Jan 13):** Visual polish. Diorama terrain with organic coastline. Animated water. Camera constraints. Keyboard shortcuts modal. Historical chronicle with real Aktau facts.
+**Day 2:** Visual polish. Diorama terrain with organic coastline. Animated water. Camera constraints. Keyboard shortcuts modal. Historical chronicle with real Aktau facts.
 
-![Day 2 - Diorama terrain and visual polish](placeholder: day2-screenshot.png)
+![Day 2 - Diorama terrain and visual polish](https://aktau.eone.work/pictures/screenshots/day2-thumb.png)
 
-**Day 3 (Jan 14):** Tutorial system with mission objectives. Added thermal plant building. Full i18n support for English and Russian. UI improvements.
+**Day 3:** Tutorial system with mission objectives. Added thermal plant building. Full i18n support for English and Russian. UI improvements.
 
-![Day 3 - Tutorial system and i18n](placeholder: day3-screenshot.png)
+![Day 3 - Tutorial system and i18n](https://aktau.eone.work/pictures/screenshots/day3-thumb.png)
 
-**Day 4 (Jan 15):** Capacity system limiting how many buildings each producer can supply. Game-over states with narrative endings. Population growth mechanics.
+**Day 4:** Capacity system limiting how many buildings each producer can supply. Game-over states with narrative endings. Population growth mechanics.
 
-![Day 4 - Capacity system and game-over states](placeholder: day4-screenshot.png)
+![Day 4 - Capacity system and game-over states](https://aktau.eone.work/pictures/screenshots/day4-thumb.png)
 
 Four days. A full game. No prior game dev experience. That's what AI-assisted development looks like in 2026.
 
