@@ -56,6 +56,7 @@
 }
 
 .navLink {
+  position: relative;
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
@@ -65,10 +66,27 @@
   transition: all var(--transition-fast);
 }
 
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: var(--space-3);
+  right: var(--space-3);
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
 @media (hover: hover) {
   .navLink:hover {
     color: var(--fg);
     background: var(--bg-hover);
+  }
+
+  .navLink:hover::after {
+    transform: scaleX(1);
   }
 }
 

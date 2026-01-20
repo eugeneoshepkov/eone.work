@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { BlogContent } from '@/components/blog/BlogContent';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { Tag } from '@/components/ui/Tag';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { getBlogPost, getBlogPosts } from '@/lib/content';
 import styles from './BlogPost.module.css';
 
@@ -31,6 +32,7 @@ export function BlogPostPage() {
 
   return (
     <article className="container">
+      <ScrollProgress />
       <Link to="/blog" className={styles.backLink}>
         <ArrowLeftIcon size={16} />
         Back to blog

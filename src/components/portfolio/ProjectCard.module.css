@@ -24,7 +24,7 @@
   .card:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.1);
+    box-shadow: 0 6px 24px rgba(249, 115, 22, 0.15);
   }
 
   .card:hover::before {
@@ -33,6 +33,7 @@
 
   .card:hover .arrow {
     transform: translate(2px, -2px);
+    color: var(--accent);
   }
 }
 
@@ -57,7 +58,7 @@
 
 @media (hover: hover) {
   .card:hover .image {
-    transform: scale(1.02);
+    transform: scale(1.04);
   }
 }
 

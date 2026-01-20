@@ -13,12 +13,17 @@ export function Home() {
     <div className="container">
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroBackground} aria-hidden="true">
+          <div className={styles.orb} />
+          <div className={styles.orb} />
+          <div className={styles.orb} />
+        </div>
         <h1 className={styles.heroTitle}>
           Hi, I'm <span className={styles.accent}>Evgeny</span>
         </h1>
         <p className={styles.heroSubtitle}>
-          Product-minded Software Engineer with 10+ years of experience. I
-          specialize in TypeScript, React, Node.js, and AI-driven integrations.
+          Product-minded Software Engineer with 10+ years of experience.
+          I specialize in TypeScript, React, Node.js, and AI-driven integrations.
           Based in Vienna.
         </p>
         <div className={styles.heroCta}>
@@ -43,8 +48,12 @@ export function Home() {
             </Link>
           </div>
           <div className={styles.postsGrid}>
-            {featuredPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+            {featuredPosts.map((post, index) => (
+              <BlogCard
+                key={post.slug}
+                post={post}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              />
             ))}
           </div>
         </section>
@@ -61,8 +70,12 @@ export function Home() {
             </Link>
           </div>
           <div className={styles.projectsGrid}>
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+            {featuredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              />
             ))}
           </div>
         </section>

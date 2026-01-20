@@ -2,17 +2,25 @@ import { Link } from 'react-router-dom';
 import { CalendarBlankIcon, ClockIcon } from '@phosphor-icons/react';
 import { format } from 'date-fns';
 import { Tag } from '@/components/ui/Tag';
+import { useInView } from '@/hooks/useInView';
 import type { BlogPost } from '@/types';
 import styles from './BlogCard.module.css';
 
 interface BlogCardProps {
   post: BlogPost;
   activeTag?: string | null;
+  style?: React.CSSProperties;
 }
 
-export function BlogCard({ post, activeTag }: BlogCardProps) {
+export function BlogCard({ post, activeTag, style }: BlogCardProps) {
+  const { ref, isVisible } = useInView();
+
   return (
-    <article className={styles.card}>
+    <article
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`${styles.card} fadeUp ${isVisible ? 'visible' : ''}`}
+      style={style}
+    >
       <Link to={`/blog/${post.slug}`} className={styles.link}>
         <h3 className={styles.title}>{post.title}</h3>
         <p className={styles.description}>{post.description}</p>

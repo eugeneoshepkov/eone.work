@@ -159,3 +159,24 @@ img {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-variant-numeric: tabular-nums;
 }
+
+/* Entrance Animations */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms var(--transition-slow),
+              transform 400ms var(--transition-slow);
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeUp {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,15 +1,23 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import { useInView } from '@/hooks/useInView';
 import type { Project } from '@/types';
 import styles from './ProjectCard.module.css';
 
 interface ProjectCardProps {
   project: Project;
+  style?: React.CSSProperties;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, style }: ProjectCardProps) {
+  const { ref, isVisible } = useInView();
+
   return (
-    <article className={styles.card}>
+    <article
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`${styles.card} fadeUp ${isVisible ? 'visible' : ''}`}
+      style={style}
+    >
       <Link to={`/projects/${project.slug}`} className={styles.link}>
         {project.image && (
           <div className={styles.imageWrapper}>

@@ -20,6 +20,19 @@
   pointer-events: none;
 }
 
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition-normal);
+}
+
 @media (hover: hover) {
   .card:hover {
     border-color: var(--accent);
@@ -29,6 +42,10 @@
 
   .card:hover::before {
     opacity: 1;
+  }
+
+  .card:hover::after {
+    transform: scaleY(1);
   }
 }
 
