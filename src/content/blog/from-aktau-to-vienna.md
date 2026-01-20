@@ -6,7 +6,7 @@ tags: [Engineering, Music]
 featured: true
 ---
 
-I grew up in Aktau, Kazakhstan - a desert city on the Caspian Sea that only exists because of a nuclear reactor.
+I grew up in Aktau, Kazakhstan - a desert city on the Caspian Sea that only exists because of a nuclear reactor. I recently [built a game about it](/blog/building-aktau-protocol).
 
 At 18 I moved to Saint Petersburg for engineering school. I knew no one. The first years were rough.
 
