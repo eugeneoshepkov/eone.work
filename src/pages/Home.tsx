@@ -2,15 +2,32 @@ import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
+import { Seo } from "@/components/seo/Seo";
 import { getFeaturedPosts, getFeaturedProjects } from "@/lib/content";
+import { getPersonSchema, SITE_NAME, toAbsoluteUrl } from "@/lib/seo";
 import styles from "./Home.module.css";
 
 export function Home() {
   const featuredPosts = getFeaturedPosts(3);
   const featuredProjects = getFeaturedProjects(3);
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: toAbsoluteUrl("/"),
+    inLanguage: "en",
+  };
+
   return (
     <div className="container">
+      <Seo
+        title="Evgeny Oshchepkov | Software Engineer"
+        description="Product-minded Software Engineer in Vienna. I build TypeScript, React, Node.js, and AI-powered products with a focus on performance and developer experience."
+        path="/"
+        jsonLd={[websiteSchema, getPersonSchema()]}
+      />
+
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroBackground} aria-hidden="true">

@@ -3,9 +3,11 @@ import { ArrowLeftIcon, CalendarBlankIcon, ClockIcon, ArrowRightIcon } from '@ph
 import { format } from 'date-fns';
 import { BlogContent } from '@/components/blog/BlogContent';
 import { BlogCard } from '@/components/blog/BlogCard';
+import { Seo } from '@/components/seo/Seo';
 import { Tag } from '@/components/ui/Tag';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { getBlogPost, getBlogPosts } from '@/lib/content';
+import { AUTHOR_NAME, toAbsoluteUrl } from '@/lib/seo';
 import styles from './BlogPost.module.css';
 
 export function BlogPostPage() {
@@ -18,6 +20,13 @@ export function BlogPostPage() {
   if (!post) {
     return (
       <div className="container">
+        <Seo
+          title="Post Not Found | eone.work"
+          description="The requested article could not be found."
+          path="/blog"
+          noindex
+        />
+
         <div className={styles.notFound}>
           <h1>Post not found</h1>
           <p>The blog post you're looking for doesn't exist.</p>
@@ -30,8 +39,47 @@ export function BlogPostPage() {
     );
   }
 
+  const postUrl = `/blog/${post.slug}`;
+  const publishedTime = new Date(post.date).toISOString();
+  const wordCount = post.content.split(/\s+/).filter(Boolean).length;
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: toAbsoluteUrl(postUrl),
+    url: toAbsoluteUrl(postUrl),
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: toAbsoluteUrl('/about'),
+    },
+    publisher: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: toAbsoluteUrl('/about'),
+    },
+    image: [toAbsoluteUrl('/og-image.png')],
+    keywords: post.tags.join(', '),
+    wordCount,
+    timeRequired: `PT${post.readingTime}M`,
+    inLanguage: 'en',
+  };
+
   return (
     <article className="container">
+      <Seo
+        title={`${post.title} | eone.work`}
+        description={post.description}
+        path={postUrl}
+        type="article"
+        publishedTime={publishedTime}
+        tags={post.tags}
+        jsonLd={blogPostingSchema}
+      />
+
       <ScrollProgress />
       <Link to="/blog" className={styles.backLink}>
         <ArrowLeftIcon size={16} />

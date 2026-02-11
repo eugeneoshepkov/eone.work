@@ -6,7 +6,11 @@
   "packageManager": "bun@1.3.5",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "seo:generate": "node scripts/generate-seo-files.mjs",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs",
+    "build": "npm run seo:generate && tsc -b && npm run build:client && npm run build:ssr && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview"
   },

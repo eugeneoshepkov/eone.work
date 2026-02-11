@@ -1,4 +1,6 @@
 import { GithubLogoIcon, LinkedinLogoIcon, EnvelopeIcon } from '@phosphor-icons/react';
+import { Seo } from '@/components/seo/Seo';
+import { AUTHOR_NAME, AUTHOR_PROFILES, toAbsoluteUrl } from '@/lib/seo';
 import styles from './About.module.css';
 
 const socialLinks = [
@@ -30,8 +32,31 @@ const skills = [
 ];
 
 export function About() {
+  const profilePageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    name: `About ${AUTHOR_NAME}`,
+    url: toAbsoluteUrl('/about'),
+    mainEntity: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      jobTitle: 'Software Engineer',
+      image: toAbsoluteUrl('/avatar-bw.png'),
+      sameAs: AUTHOR_PROFILES,
+    },
+  };
+
   return (
     <div className="container">
+      <Seo
+        title="About Evgeny Oshchepkov | eone.work"
+        description="About Evgeny Oshchepkov: product-minded software engineer with 10+ years building scalable web products and AI-powered experiences."
+        path="/about"
+        imagePath="/avatar-bw.png"
+        type="profile"
+        jsonLd={profilePageSchema}
+      />
+
       <div className={styles.content}>
         <header className={styles.header}>
           <div className={styles.avatarWrap}>

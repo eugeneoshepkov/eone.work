@@ -3,8 +3,10 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { XIcon } from '@phosphor-icons/react';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogIntro } from '@/components/blog/BlogIntro';
+import { Seo } from '@/components/seo/Seo';
 import { Tag } from '@/components/ui/Tag';
 import { getBlogPosts } from '@/lib/content';
+import { AUTHOR_NAME, SITE_NAME, toAbsoluteUrl } from '@/lib/seo';
 import styles from './Blog.module.css';
 
 const INTRO_KEY = 'blog:intro:dismissed:v1';
@@ -39,8 +41,30 @@ export function Blog() {
     setIntroDismissed(true);
   };
 
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `${SITE_NAME} Blog`,
+    description: 'Insights on TypeScript, React, product engineering, and AI integrations.',
+    url: toAbsoluteUrl('/blog'),
+    inLanguage: 'en',
+    publisher: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: toAbsoluteUrl('/about'),
+    },
+  };
+
   return (
     <div className="container">
+      <Seo
+        title="Blog | eone.work"
+        description="Technical writing on TypeScript, React architecture, migration strategies, and practical lessons from shipping AI features."
+        path="/blog"
+        noindex={Boolean(activeTag)}
+        jsonLd={blogSchema}
+      />
+
       <header className={styles.header}>
         <h1 className={styles.title}>Blog</h1>
         <p className={styles.description}>
