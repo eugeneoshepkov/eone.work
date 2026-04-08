@@ -1,10 +1,10 @@
 ---
-
-## title: Building a Reading Dashboard from Amazon Kindle Exports
+title: Building a Reading Dashboard from Amazon Kindle Exports
 description: Amazon gives you a giant Kindle export zip, not a clean product API. I turned that archive into a local-first reading insights dashboard with Bun, TypeScript, heuristics, and a lot of cleanup.
 date: 2026-04-08
 tags: [Engineering, Design, AI]
 featured: true
+---
 
 Amazon will happily give you your Kindle data. What it won't give you is a usable product.
 
@@ -14,7 +14,7 @@ It wasn't easy. But it was worth it.
 
 I built a local-first reading insights dashboard from my Kindle export. Bun + TypeScript + Vite + React on top. The interesting part wasn't drawing charts. It was figuring out which parts of the archive were facts, which were hints, and which were basically noise.
 
-Library view of the Kindle reading insights dashboard
+![Library view of the Kindle reading insights dashboard](/blog/kindle-reading-insights/library-overview.webp)
 
 ## The export is rich, but not product-ready
 
@@ -171,7 +171,7 @@ That's why the newer parts of the dashboard matter more to me than the obvious t
 
 Those feel closer to actual reading behavior than another annual total ever will.
 
-Reading Insights view with parallel reading analysis and archive-driven analytics
+![Reading Insights view with parallel reading analysis and archive-driven analytics](/blog/kindle-reading-insights/insights-overview.webp)
 
 ## Bun was a good fit for this
 
