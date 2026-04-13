@@ -38,6 +38,9 @@ export function Footer() {
         <p className={styles.copyright}>
           © {currentYear} eone.work
         </p>
+        <p className={styles.aiDisclaimer} role="note">
+          🤖 All content on this blog is AI-generated
+        </p>
       </div>
     </footer>
   );
