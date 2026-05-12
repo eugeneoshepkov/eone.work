@@ -8,9 +8,9 @@ featured: false
 
 I've wanted to fly for years. This month I stopped just wanting and booked the first lesson.
 
-May 3rd: first flight. First takeoff. Hands on the yoke from taxi to climb.
+May 3rd: first flight. First takeoff. Hands on the controls, instructor following through next to me.
 
-I'm writing this less than 24 hours later, and my hands still remember the airplane wanting to lift before I told it to.
+I'm writing this less than 24 hours later, and my hands still remember the airplane wanting to lift the moment I eased back on the yoke.
 
 ## Why a PPL
 
@@ -22,11 +22,11 @@ It also sits at the intersection of things I already care about: physical skill,
 
 ## The first flight
 
-Pre-flight took longer than I expected. Walkaround, control surfaces, fuel sample, oil level, fuselage, propeller, lights. Each step is small. The point isn't any single check - it's that you don't skip them.
+Pre-flight took longer than I expected. My instructor walked me through it: control surfaces, fuel sample, oil level, fuselage, propeller, lights. Each step is small. The point isn't any single check - it's that you don't skip them.
 
-Then radio. Then taxi. The plane on the ground feels strange - steered with the feet, not the hands. I oversteered, understeered, snaked down the yellow line. Got better by the second taxiway.
+Then in. Headset on. Instructor handled the radios; I just listened and tried to keep up with what was being said.
 
-Takeoff was the part I'd been turning over in my head for weeks. Full power. Eyes down the runway. Light pressure back. The nose lifts before the wheels do. Then quiet. Then climb.
+Takeoff was the part I'd been turning over in my head for weeks. He talked me through it - full power, eyes down the runway, light back-pressure when he called it. The nose lifts before the wheels do. Then quiet. Then climb.
 
 It is loud and bumpy and bright. And then there's a second - somewhere just after rotation - where the world drops away and you're just balancing on air. That second alone was worth every euro this license is about to cost.
 
@@ -34,13 +34,11 @@ It is loud and bumpy and bright. And then there's a second - somewhere just afte
 
 ## What surprised me
 
-**It's mostly hand-eye-feet at once.** I expected the brain part to be hard. The brain part is easy compared to coordinating three control inputs while talking on the radio.
+**It's mostly hand-eye-feet at once.** I expected the brain part to be hard. The brain part was easy compared to keeping the wings level, the nose where it belongs, and the ball centered, all at the same time.
 
-**Trim does more than I thought.** A small wheel that takes the load off the yoke. Without it your arm fights the airplane the whole flight. With it the plane more or less flies itself.
+**Trim does more than I thought.** A small wheel that takes the load off the yoke. Untrimmed, your arm fights the airplane. Trimmed properly, the plane more or less flies itself.
 
-**The radio is its own language.** Short, dense, no improvisation. Frequencies, callsigns, intentions. I sounded like a tourist. I'll get better.
-
-**Looking outside is the lesson.** Beginners stare at instruments. Pilots fly the horizon and glance at the panel. The whole "where is the nose pointing" question lives outside the windscreen.
+**Looking outside is the lesson.** I kept catching myself staring at instruments. The instructor kept gently pulling my eyes back to the horizon. The whole "where is the nose pointing" question lives outside the windscreen, not on the panel.
 
 ## What I'm optimizing for
 
