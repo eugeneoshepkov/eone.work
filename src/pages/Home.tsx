@@ -3,12 +3,12 @@ import { ArrowRightIcon } from "@phosphor-icons/react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { Seo } from "@/components/seo/Seo";
-import { getFeaturedPosts, getFeaturedProjects } from "@/lib/content";
+import { getFeaturedProjects, getRecentPosts } from "@/lib/content";
 import { getPersonSchema, SITE_NAME, toAbsoluteUrl } from "@/lib/seo";
 import styles from "./Home.module.css";
 
 export function Home() {
-  const featuredPosts = getFeaturedPosts(3);
+  const recentPosts = getRecentPosts(3);
   const featuredProjects = getFeaturedProjects(3);
 
   const websiteSchema = {
@@ -55,7 +55,7 @@ export function Home() {
       </section>
 
       {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
+      {recentPosts.length > 0 && (
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Recent Posts</h2>
@@ -65,7 +65,7 @@ export function Home() {
             </Link>
           </div>
           <div className={styles.postsGrid}>
-            {featuredPosts.map((post, index) => (
+            {recentPosts.map((post, index) => (
               <BlogCard
                 key={post.slug}
                 post={post}

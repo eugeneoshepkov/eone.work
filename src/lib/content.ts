@@ -95,6 +95,10 @@ export function getFeaturedPosts(limit = 3): BlogPost[] {
   return featured.length > 0 ? featured.slice(0, limit) : posts.slice(0, limit);
 }
 
+export function getRecentPosts(limit = 3): BlogPost[] {
+  return getBlogPosts().slice(0, limit);
+}
+
 export function getProjects(): Project[] {
   const projects: Project[] = [];
 
