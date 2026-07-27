@@ -6,166 +6,102 @@ tags: [Music, Engineering]
 featured: true
 ---
 
-Before I wrote code professionally, I was a self-taught musician. I started at 15 with zero formal music education - learned guitar, singing, and even metal screaming (yes, on inhale) by brute-force experimentation. Then I spent years learning different DAWs, obsessing over mixing, and uploading tracks that got 47 plays (thanks, mom).
+From 2010 to 2019 I sang and played guitar in Exage, a modern metal band. We recorded an album, shot a couple of videos, and did the rehearsal-room grind. Before that I'd taught myself guitar at 15 with no lessons, no theory, and no one to tell me what I wasn't allowed to try.
 
-From 2010 to 2019 I was the singer + guitarist in Exage (modern metal / metalcore). We recorded an album, filmed a couple music videos, and did the usual rehearsal-room grind.
-
-If you want a quick taste: [Exage on Spotify](https://open.spotify.com/artist/5uz4tOA6Ao23QNgoPagWIq?si=K8lQAqlQS0ihWYkrFsQFnQ).
+[Exage on Spotify](https://open.spotify.com/artist/5uz4tOA6Ao23QNgoPagWIq?si=K8lQAqlQS0ihWYkrFsQFnQ)
 
 Exage - Dried By Time (Official Music Video)
 
 https://youtu.be/5MSZXmbNoLg?si=EhgD4Cdrpfq7ptzO
 
-Exage - Ergot In The Rye (Guitar Playthrough) - the song I wrote end to end (music and lyrics)
+Exage - Ergot In The Rye (Guitar Playthrough) - the one I wrote end to end, music and lyrics
 
 https://youtu.be/an4gtPLFtuE?si=-6sk5fjDaoKBuRH3
 
-I also ran a one-man progressive metal side project (Harvard Process), sang in Discrepancy, and lately I’ve been doing AI-assisted experiments as Caspian Ghost. The full timeline (with links) is here: [Music](/projects/music).
+I also ran a one-man progressive metal project (Harvard Process), sang in Discrepancy, and lately I've been doing AI-assisted things as Caspian Ghost. Full timeline with links: [Music](/projects/music).
 
-When I transitioned to software engineering, I expected a clean reset. I was wrong. The mental models transfer surprisingly well: constraints, iteration, taste, and knowing when to stop.
+When I moved into software professionally I assumed it was a clean reset. It wasn't. The technical knowledge didn't transfer at all, but the working habits transferred almost completely, and the habits turned out to be the part that mattered.
 
-## Rookie mode is a feature
+## Being bad in public
 
-Starting at 15 without lessons meant I didn’t have anyone to tell me what I was “allowed” to try. I was a beginner in public. I sounded bad. I recorded takes I couldn’t listen back to without cringing. And I still kept going.
+Starting without lessons meant nobody told me which experiments were stupid. So I ran all of them. I recorded takes I couldn't listen back to. I spent a year getting worse at singing before I got better. At some point I worked out how to scream on the inhale, which is not the correct technique for anything, and I learned it purely because there was nobody around to say don't.
 
-At one point I got obsessed with learning to scream. No vocal coach - just trial, error, and a lot of wrong attempts. I even ended up figuring out how to do metal screaming on inhale. Not because it’s the correct technique. Because experimentation was the whole game.
+That period taught me a loop I still use: fail while it's cheap, change one thing at a time so you know what caused the result, finish small pieces because momentum beats perfection, and share before you feel ready.
 
-That rookie phase taught me a loop I still use in software:
+I still get the "I'm not ready" tension before shipping something new, and I've stopped expecting it to go away. The trick isn't confidence. It's keeping the experiment small enough that shipping it isn't a big deal either way.
 
-- **Fail early** (while it’s cheap)
-- **Change one thing** (so you know what caused the result)
-- **Finish small pieces** (momentum beats perfection)
-- **Share before you’re ready** (feedback beats imagination)
+## Demo-itis
 
-I still feel that little “I’m not ready” tension before I ship something new. The trick isn’t to eliminate it - it’s to keep the experiment small enough that you ship anyway.
+There's a thing in music production where you live with a rough demo so long that it becomes the reference. Every polished version afterwards sounds wrong to you, not because it is, but because your ear has calibrated to the wrong take.
 
-If I take one thing from my music years, it’s this: let yourself be a rookie. I’m still learning to do that.
-
-## The "good enough" trap
-
-In music production, there's a phenomenon called "demo-itis" - when you work on a track so long that the rough demo becomes the reference point, and any polished version sounds wrong.
-
-Software has the same problem. You build a prototype, it works, and suddenly refactoring feels like regression. The hacky solution becomes the mental model of "correct."
-
-**The lesson:** Ship early, get feedback, don't let temporary become permanent.
+Software does exactly this. You build a prototype, it works, and the hacky version becomes your mental model of correct. Refactoring starts to feel like regression. The temporary thing has quietly become the specification, and everyone new to the project inherits it as though it were a decision.
 
 ## Mixing is debugging
 
-When a mix sounds wrong, you don't immediately know why. The bass is muddy? Could be the kick drum, could be the bass itself, could be the room acoustics, could be clashing frequencies from the synths.
+When a mix sounds wrong you rarely know why. The bass is muddy - is that the bass? The kick? The room? Two synths fighting for the same 200Hz?
 
-Debugging is the same. The bug manifests in one place but originates somewhere else entirely. Both require systematic elimination: solo the track, isolate the component, trace the signal path.
+Debugging has the identical shape. The symptom appears in one place and originates somewhere entirely different, and the only reliable move is systematic elimination: solo the track, isolate the component, follow the signal path.
 
-I got good at debugging partly because mixing trained me to think about systems as chains of dependent processes.
+I think I got decent at debugging faster than I should have, and I'd credit mixing for it. Years of practice at treating a system as a chain of dependent processes rather than a thing that's either working or broken.
 
-## If it only sounds good in your room, it’s not done
+## If it only sounds good in your room, it isn't done
 
-The cruel part about mixing is “translation”.
+The cruel part of mixing is translation. Something can sound enormous in studio headphones and turn to mush on earbuds, vanish on a phone speaker, or become unlistenable in a car. So you check it in mono, at low volume, on different speakers, against a reference track you trust.
 
-Something can sound massive in studio headphones and turn into mush on cheap earbuds. Or disappear on a phone speaker. Or become painfully harsh on a car stereo.
+Your laptop is studio monitors. Production is the car test. If a feature only works on your machine, on your connection, with your data, it doesn't work - it just hasn't met anyone yet.
 
-So you test where it lives:
-- In mono
-- Quiet volume
-- Different speakers
-- A/B against a reference track
+## Constraints, again
 
-Software is the same. Your laptop is studio monitors. Production is the car test.
+My most productive stretches of music-making all came with artificial limits. Five synth patches only. Finish in two hours. Samples, no recording.
 
-If your feature only works on your machine, it doesn’t work. Test on slow devices, flaky networks, real data, weird browsers. That’s where the truth is.
+The software equivalents write themselves: standard library only, ship this sprint, no new dependencies.
 
-## The 80/20 of polish
-
-That last 20% of a track - getting the perfect reverb tail, automating volume micro-adjustments, the subtle compression moves - takes 80% of the time. Most listeners won't notice. But *you* notice, and that's what separates amateur from professional.
-
-Same with code. The edge cases, the error handling, the performance optimization, the accessibility considerations. Users might not explicitly notice, but they feel the difference between software that's polished and software that's just functional.
-
-## Creative constraints accelerate output
-
-My most productive music-making happened with artificial limitations:
-- Only use these 5 synth patches
-- Finish a track in 2 hours
-- Use only samples, no recording
-
-In software:
-- Use only the standard library
-- Ship in one sprint
-- No new dependencies
-
-Constraints kill decision paralysis. When everything is possible, nothing gets done.
+Constraints kill decision paralysis, and decision paralysis is where most of my unfinished work went. When everything is possible you spend the evening evaluating rather than making.
 
 ## Commit to the bounce
 
-A DAW makes everything reversible. That’s both the magic and the trap.
+A DAW makes everything reversible, which is the magic and also the trap. Keep 70 tracks, 40 plugins, and every alternate take "just in case" and you will never finish, because you're permanently one tweak from a different song.
 
-If you keep 70 tracks, 40 plugins, and everything “just in case”, you never finish. You’re always one tweak away from a different track.
+So producers commit deliberately. Print the take. Bounce the stems. Freeze the synth. Not because the committed version is objectively best - because reducing your degrees of freedom is the only way the thing ever gets done.
 
-Producers commit. Print the take. Bounce the stems. Freeze the synth. Not because it’s objectively better - because it reduces degrees of freedom.
+Same move in software: lock the API, pick defaults, delete options, ship. You can still iterate. You just stop pretending you'll keep every path open forever.
 
-In software, it’s the same move: lock an API, choose defaults, delete options, ship. You can still iterate later, but you stop pretending you’ll keep every path open forever.
+## Reference tracks
 
-## Reference tracks and reference architectures
+No professional producer starts from nothing. They load up songs they admire and A/B against them throughout the mix. It isn't copying, it's calibration - your ear drifts over four hours and the reference tells you how far.
 
-No professional producer starts from scratch. They load up reference tracks - songs they admire - and A/B compare throughout the mixing process. It's not copying, it's calibration.
+Engineers do this with architecture without always admitting it. Before designing something I go look at how other people solved it. Open source codebases are our reference tracks.
 
-Engineers do this with architecture. Before designing a system, I look at how others solved similar problems. Open source codebases are our reference tracks. AWS case studies are our production notes.
+## Taste is reps
 
-## Taste is trained, not gifted
+From outside, taste in music looks like a gift. From inside it's just volume of comparison. You listen, you steal small ideas, you notice what feels wrong before you can explain why, and over years your defaults improve. The tell is that experienced producers reach for fewer knobs, not more.
 
-In music, “taste” looks mysterious from the outside. In reality it’s reps.
-
-You train your ear by comparing, stealing small ideas, and noticing what feels wrong. Over time, your default choices get better. You reach for fewer knobs, not more.
-
-Code is like that too. Taste shows up in names, boundaries, and tradeoffs. It comes from shipping, reading good code, and being honest about what didn’t work last time.
+Code is the same. Taste shows up in naming, in where you put boundaries, in which tradeoffs you take without needing to discuss them. It comes from shipping a lot, reading better code than yours, and being honest about what didn't work last time - which is the part people skip.
 
 ## The arrangement is the architecture
 
-A song's arrangement - intro, verse, chorus, bridge, outro - determines how it feels, regardless of the individual sounds. You can have the best synth patch in the world, but if your arrangement is boring, the track is boring.
+A song's arrangement determines how it feels almost independently of the sounds in it. You can have the best guitar tone ever recorded and a boring arrangement will still produce a boring song.
 
-Software architecture is the same. You can write beautiful functions, but if the overall system design is wrong, the product suffers. High-level structure matters more than local perfection.
+Architecture works the same way. Beautiful functions inside a bad system design produce a bad product, and the reverse - ordinary code in a well-shaped system - is fine more often than anyone wants to admit.
 
-## Collaboration patterns
+## Ears get tired, so do decisions
 
-In a band:
-- Everyone has opinions on the final mix
-- Someone has to make the call
-- The drummer and bassist need to lock in before guitar layers work
-- Ego kills bands faster than lack of talent
+Mix for too long and you lose perspective. Your ears adapt, you start over-correcting, and eventually you're fixing things that were never broken.
 
-In engineering teams:
-- Everyone has opinions on the architecture
-- Someone has to make the call
-- Backend and API contracts need to lock in before frontend works
-- Ego kills teams faster than lack of skill
+Coding has the identical failure mode past a certain hour. You're not improving the system anymore, you're just making it different, and it takes a night's sleep to see it.
 
-The dynamics are identical.
+The fix is boring: stop, come back tomorrow, ship in smaller pieces, get someone with fresh ears to look.
 
-## Your ears get tired. So do your decisions.
+## Knowing when to stop
 
-When you mix too long, you lose perspective. Your ears adapt and suddenly you’re over-correcting. You start “fixing” things that weren’t broken.
+The hardest skill in production is calling a track finished. There's always another layer, another automation pass, another hour on the hi-hats.
 
-Coding has the same failure mode. Past a point, you’re not improving the system - you’re just making it different.
+I'm still not good at this one, in either discipline. I've shipped features I kept picking at for weeks after they were fine, and I have songs from a decade ago I'd still like to remix. The difference now is that I can usually recognise the state I'm in, even when I don't act on it.
 
-The simplest fix is boring: take breaks. Come back tomorrow. Ship smaller chunks. Review with fresh eyes.
+## The bedroom producer pipeline
 
-## Know when to stop
+A lot of engineers I know came from something creative - music, art, writing. I don't think that's coincidence. Both are crafts that improve mainly through repetition, both require holding a vision while doing unglamorous execution work, both involve handing your work to people who will judge it, and both reward the mix of systematic thinking and intuition that's hard to teach directly.
 
-The hardest skill in music production is knowing when a track is done. You can always add another layer, tweak another knob, spend another hour on the hi-hats. At some point, you're making it different, not better.
+If you're a musician wondering whether you could do this: the skills transfer more than you'd expect. Just not the ones you'd assume.
 
-Same with code. The feature can always be more elegant, more abstract, more generalized. But at some point, you're gold-plating, not improving.
-
-Ship the track. Ship the feature. Move on.
-
-## The bedroom producer → engineer pipeline
-
-I'm not the only one who made this jump. Many engineers I know have creative backgrounds - musicians, artists, writers. There's something about creative production that prepares you for building software:
-
-- Both are craft that improves with practice
-- Both require balancing vision with execution
-- Both involve shipping work for others to judge
-- Both reward systematic thinking and intuition
-
-If you're a musician wondering if you could do software engineering: you probably can. The skills transfer more than you'd expect.
-
----
-
-Still making music when I can. The tools change; the mental models don’t.
+Still making music when I can. The tools keep changing and the mental models haven't.

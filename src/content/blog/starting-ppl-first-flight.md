@@ -1,55 +1,53 @@
 ---
-title: Learning to Fly: Starting My PPL
+title: "Learning to Fly: Starting My PPL"
 description: Why I'm chasing a private pilot license, and what my first flight - first takeoff included - actually felt like.
 date: 2026-05-03
 tags: [Aviation]
 featured: false
 ---
 
-I've wanted to fly for years. This month I stopped just wanting and booked the first lesson.
+I've wanted to fly for years. This month I stopped wanting and booked a lesson.
 
-May 3rd: first flight. First takeoff. Hands on the controls, instructor following through next to me.
+May 3rd: first flight, first takeoff, hands on the controls with the instructor following through beside me.
 
-I'm writing this less than 24 hours later, and my hands still remember the airplane wanting to lift the moment I eased back on the yoke.
+I'm writing this less than 24 hours later and my hands still remember the airplane wanting to lift the moment I eased back on the yoke.
 
 ## Why a PPL
 
-I like building things I can operate end to end. Code I write. Songs I produce. A game about my hometown. The plane is just the next system - one where the consequences of bad assumptions are louder.
+I like building things I can operate end to end. Code I wrote. Songs I produced. A game about my hometown. A plane is the next one, except the consequences of a bad assumption are considerably louder.
 
-Software forgives. You can crash a process and ship a fix in five minutes. An aircraft enforces discipline by physics. That asymmetry is the appeal. I want a hobby where I can't bluff my way through.
+Software forgives. You can crash a process and ship a fix in five minutes, and most of my professional instincts are shaped by that fact. An aircraft enforces discipline through physics instead of code review. I wanted a hobby where I can't talk my way through the parts I haven't learned yet.
 
-It also sits at the intersection of things I already care about: physical skill, checklists and instruments, weather and energy management, decision-making under time pressure. It's engineering you wear.
+It also sits on top of a pile of things I already care about: physical skill, checklists, instruments, weather, energy management, decisions under time pressure. Engineering you wear.
 
 ## The first flight
 
-Pre-flight took longer than I expected. My instructor walked me through it: control surfaces, fuel sample, oil level, fuselage, propeller, lights. Each step is small. The point isn't any single check - it's that you don't skip them.
+Pre-flight took much longer than I expected. Control surfaces, fuel sample, oil, fuselage, propeller, lights - the instructor walked me through all of it. No single check is difficult. The whole discipline is that you don't skip them, and I could already feel how easy skipping would be once it stops being novel.
 
-Then in. Headset on. Instructor handled the radios; I just listened and tried to keep up with what was being said.
+Then in. Headset on. He handled the radios while I listened and tried to keep up with what was being said, which was maybe forty percent successful.
 
-Takeoff was the part I'd been turning over in my head for weeks. He talked me through it - full power, eyes down the runway, light back-pressure when he called it. The nose lifts before the wheels do. Then quiet. Then climb.
+Takeoff was the part I'd been turning over for weeks. He talked me through it - full power, eyes down the runway, light back-pressure when he called for it. The nose comes up before the wheels leave. Then it goes quiet, and then you're climbing.
 
-It is loud and bumpy and bright. And then there's a second - somewhere just after rotation - where the world drops away and you're just balancing on air. That second alone was worth every euro this license is about to cost.
+It's loud and bumpy and very bright. And then somewhere just after rotation there's a second where the ground stops being under you and you're balancing on air. I'd pay for the whole license again for that second, which is fortunate, because I'm about to.
 
 ![First flight - May 3rd, 2026](/blog/starting-ppl-first-flight/first-flight.webp)
 
 ## What surprised me
 
-**It's mostly hand-eye-feet at once.** I expected the brain part to be hard. The brain part was easy compared to keeping the wings level, the nose where it belongs, and the ball centered, all at the same time.
+I'd assumed the hard part would be cognitive - procedures, radio, airspace. The hard part was physical. Keeping the wings level, the nose where it belongs, and the ball centered, all simultaneously, while also being a person who is thinking about things.
 
-**Trim does more than I thought.** A small wheel that takes the load off the yoke. Untrimmed, your arm fights the airplane. Trimmed properly, the plane more or less flies itself.
+Trim does far more than I understood from reading about it. It's a small wheel that takes the load off the yoke, and the difference between trimmed and untrimmed is the difference between flying the airplane and wrestling it.
 
-**Looking outside is the lesson.** I kept catching myself staring at instruments. The instructor kept gently pulling my eyes back to the horizon. The whole "where is the nose pointing" question lives outside the windscreen, not on the panel.
+And the real lesson of the hour was where to look. I kept catching myself on the instruments, and the instructor kept quietly pulling my eyes back outside. Everything I was trying to find on the panel was available out of the windscreen, faster and more accurately, if I'd just look at it.
 
-## What I'm optimizing for
+## The plan, such as it is
 
-Not the license itself. The skill.
+I'm after the skill more than the certificate, though I recognize that's an easy thing to say at hour one.
 
-A PPL is the entry point - around 45 flight hours, plus theory exams, plus medical, plus checkride. I'll move at the pace my schedule and budget allow. Probably 6-9 months. Probably more.
+A PPL is roughly 45 flight hours plus theory exams, a medical, and a checkride. I'll go at whatever pace my schedule and budget allow - probably six to nine months, probably longer, and I say that fully aware that everyone says that.
 
-The fun part is the loop: book a lesson, fly something specific (slow flight, stalls, traffic patterns, crosswind landings), debrief, read, repeat. Same shape as every other thing I've gotten good at. Small iterations, honest feedback, no bluffing.
+The loop is the fun part and it's the same loop as everything else I've gotten decent at: book a lesson, fly something specific - slow flight, stalls, patterns, crosswind landings - debrief honestly, read, repeat.
 
-## Where this is going
+Next milestones, roughly: first solo, first cross-country, checkride. Maybe a night rating eventually. No timeline attached to any of it.
 
-Next milestones, roughly in order: first solo, first cross-country, checkride. Maybe a night rating after that. No timeline.
-
-If you're a pilot, or you're considering starting, I'd love to hear how you approached it. Reach me at [me@eone.work](mailto:me@eone.work).
+If you fly, or you're thinking about starting, I'd like to hear how you went about it: [me@eone.work](mailto:me@eone.work)

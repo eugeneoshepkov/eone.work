@@ -8,88 +8,74 @@ featured: true
 
 ![Caspian Atom: The Aktau Protocol - A Soviet-era nuclear city builder](https://aktau.eone.work/pictures/intro-horizontal.png)
 
-I grew up in Aktau, Kazakhstan.
+There's no river in Aktau. Almost no rainfall. The city exists because someone in the Soviet Union decided to put a fast breeder reactor in the desert and use it to turn the Caspian Sea into drinking water.
 
-Now I've built a game about it. A nuclear city-builder where you manage the reactor that kept 150,000 people alive in the desert. And I didn't write a single line of code.
+The BN-350 ran from 1972 to 1999 and desalinated something like 120,000 cubic meters a day. That's what my hometown was drinking. That's why 150,000 people could live somewhere that should not support them.
 
-## Aktau shouldn't exist
+I've now made a game about it - a city builder where you run that reactor - and I didn't write any of the code.
 
-There's no river. Almost no rainfall. Just sand, the Caspian Sea, and a Soviet idea that sounded insane: put a nuclear reactor in the desert and use it to turn seawater into drinking water.
+## I'd never built a game
 
-The BN-350 fast breeder reactor ran from 1972 to 1999. It desalinated 120,000 cubic meters of water per day. It kept my hometown alive.
+I've been writing software for years. Games, never. I didn't know Babylon.js, didn't know how game loops are structured, had no idea how you handle isometric cameras or resource ticks or particle systems.
 
-When I thought about building a game, this was the only story I wanted to tell.
+That was most of the appeal. I wanted to find out how far the AI tooling would carry someone with strong general engineering instincts and zero domain knowledge.
 
-I wrote more about my path from Aktau [here](/blog/from-aktau-to-vienna).
+## What the process actually looked like
 
-## I'd never built a game before
-
-I've been writing software for years. But game development? Never touched it.
-
-I didn't know Babylon.js. I didn't know how game loops work. I didn't know how to handle isometric cameras, resource ticks, or particle effects.
-
-That was the point. I wanted to learn something completely new. And I wanted to see if AI tools could get me there.
-
-## AI-powered development
-
-I used Claude Code and Cursor with the Opus 4.5 model. The experience was unlike anything I've done before.
-
-I didn't write TypeScript. I described what I wanted:
+Claude Code and Cursor, mostly on Opus 4.5. I described behavior instead of writing implementations:
 
 - "Add a reactor that generates heat and electricity, but increases temperature every tick"
 - "Make pipe connections auto-form between buildings within 5 tiles"
 - "Add a ghost preview when placing buildings that shows green if connected, gray if not"
 - "The terrain should look like a diorama with organic edges"
 
-Claude wrote the code. I reviewed, iterated, and directed. It felt less like programming and more like directing a very competent team member who never gets tired.
+Claude wrote it, I reviewed and redirected. It felt less like programming and more like directing someone very capable who never gets tired and never gets defensive about their work.
 
-The novel part: I could think at the design level without getting stuck in implementation details. When something didn't work, I described the problem. When I wanted a feature, I described the behavior. The gap between idea and working code shrunk to minutes. Sometimes I've used Google Gemini in the separate chat window to act as a second pair of eyes. Also generated bunch of images with Nano Banana.
+The genuinely new part was staying at the design level. Normally when I have an idea, some percentage of my attention immediately goes to how annoying it will be to implement, and that estimate silently filters what I let myself consider. That filter mostly switched off. The distance between "what if the terrain looked like a diorama" and looking at a diorama was minutes.
 
-## Four days from zero to playable
+I also kept a Gemini window open as a second opinion when I wanted something checked by a model that hadn't just written the thing, and generated a pile of images with Nano Banana.
 
-Here's what the git log looks like:
+## Four days
 
-**Day 1:** Initial commit. Core game mechanics. Building placement. Resource production. Reactor temperature system.
+**Day 1:** Core mechanics. Building placement, resource production, reactor temperature.
 
 ![Day 1 - Core mechanics and building placement](https://aktau.eone.work/pictures/screenshots/day1-thumb.png)
 
-**Day 2:** Visual polish. Diorama terrain with organic coastline. Animated water. Camera constraints. Keyboard shortcuts modal. Historical chronicle with real Aktau facts.
+**Day 2:** Visual work. Diorama terrain with an organic coastline, animated water, camera constraints, a keyboard shortcuts modal, and a historical chronicle using real Aktau facts.
 
 ![Day 2 - Diorama terrain and visual polish](https://aktau.eone.work/pictures/screenshots/day2-thumb.png)
 
-**Day 3:** Tutorial system with mission objectives. Added thermal plant building. Full i18n support for English and Russian. UI improvements.
+**Day 3:** Tutorial with mission objectives, thermal plant building, full i18n for English and Russian, UI cleanup.
 
 ![Day 3 - Tutorial system and i18n](https://aktau.eone.work/pictures/screenshots/day3-thumb.png)
 
-**Day 4:** Capacity system limiting how many buildings each producer can supply. Game-over states with narrative endings. Population growth mechanics.
+**Day 4:** Capacity limits on how many buildings a producer can supply, game-over states with narrative endings, population growth.
 
 ![Day 4 - Capacity system and game-over states](https://aktau.eone.work/pictures/screenshots/day4-thumb.png)
 
-Four days. A full game. No prior game dev experience. That's what AI-assisted development looks like in 2026.
+Four days from nothing to playable. I want to be careful about what that does and doesn't prove: it's four days of building a small game with well-understood mechanics, by someone who knows how to review code and describe systems precisely. It is not four days of building something novel, and the balance is still wrong in places I haven't fixed.
 
-## The soundtrack came from Suno
+## The soundtrack
 
-I've been experimenting with AI music for a while under [Caspian Ghost](https://open.spotify.com/artist/3AkhqYgQXec1r3TXQ77XVe). When it came time for background music, Suno was the obvious choice.
+Suno, unsurprisingly. I've been doing AI music under [Caspian Ghost](https://open.spotify.com/artist/3AkhqYgQXec1r3TXQ77XVe) for a while, so when it came time for background music the workflow already existed.
 
-I generated tracks that fit the Soviet-era mood: atmospheric, slightly melancholic, with that industrial undertone. The same iterative process applied-describe the vibe, generate variations, keep what works.
+I went for atmospheric and slightly melancholic with an industrial undertone - the Soviet-era mood the setting deserves. Same loop as everything else: describe the vibe, generate variations, keep what works.
 
-If you're curious about AI music, I wrote a [detailed guide on Suno](/blog/suno-ai-music-guide).
+If you want the detail on that side: [Suno guide](/blog/suno-ai-music-guide).
 
-## What I actually learned
+## What I took from it
 
-**The iteration loop still matters.** AI tools don't remove the need for feedback cycles. They compress them. I still had to play the game, notice what felt wrong, and adjust. The difference is the adjust step takes minutes instead of hours.
+The iteration loop didn't go away. It compressed. I still had to play the thing, notice what felt wrong, and change it - and noticing what feels wrong is the part no tool does for you. What changed is that acting on the noticing takes minutes, which means you're willing to act on smaller and vaguer instincts.
 
-**AI amplifies, it doesn't replace.** The creative decisions-what makes the game interesting, what the player should feel, how systems interconnect-those were mine. Claude handled execution. I handled vision.
+Some of the better features came out of back-and-forth rather than from either side alone. I'd describe a symptom - players don't understand why their microrayon isn't working - and get back a proposal about surfacing connection state in the preview, and the actual solution was a few rounds past both.
 
-**Game design emerges through conversation.** Some of the best features came from back-and-forth. I'd describe a problem ("players don't understand why their microrayon isn't working"), Claude would suggest a solution ("show connection status in the building preview"), and we'd refine it together.
+The thing I didn't expect is how much of game design is emotional pacing rather than systems design. I could get the systems correct and have the game still feel dead, and no amount of describing behavior to a model fixes that, because the problem isn't in the behavior. That's the part I'm still bad at.
 
-**Game dev is surprisingly fun.** There's something satisfying about building a tiny world and watching it run. Even the failure states-meltdowns, droughts, frozen cities-feel like achievements when you designed them.
+## Try it and tell me what's broken
 
-## Try it, break it, tell me what's wrong
+It's a work in progress. I'm still adding things, balancing resources, and finding edge cases.
 
-The game is work in progress. I'm still adding features, balancing resources, fixing edge cases.
-
-But it's playable. And I'd love feedback.
+But it's playable, and I'd rather have feedback than polish.
 
 **Play:** [aktau.eone.work](https://aktau.eone.work/)
 
@@ -97,4 +83,4 @@ But it's playable. And I'd love feedback.
 
 **Technical deep-dive:** [Project page](/projects/aktau-protocol)
 
-If you try it, let me know what breaks or what feels off: [me@eone.work](mailto:me@eone.work)
+More on where I'm from: [From Aktau to Vienna](/blog/from-aktau-to-vienna). If something breaks or feels off: [me@eone.work](mailto:me@eone.work)

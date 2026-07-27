@@ -6,180 +6,106 @@ tags: [Engineering]
 featured: false
 ---
 
-I've led or participated in major migrations at ImmoScout24, TourRadar, and other companies - millions of users, zero downtime, and a team that still had to ship features while the foundation moved under them.
+The hardest conversation in the ImmoScout24 listing page migration had nothing to do with databases.
 
-The code is the visible part. The people part determines whether it ships.
+It was with the engineers who'd built the old Exposé pages. They'd spent years on that code. They'd made it work under constraints that no longer applied, solved problems that no longer existed, and now a plan was circulating that described all of it as the thing to be replaced.
 
-I've done a few migrations outside code too. Moving from Aktau to Saint Petersburg at 18 was a migration with no rollback. No feature flags. No gradual traffic shift. Just a hard cut-over and months of debugging my new life. I learned the lesson there: never big bang if you can help it.
+We weren't saying their work was bad. The requirements had changed and the architecture couldn't bend that far. But that distinction is very easy to state in a planning doc and very hard to feel when it's your code on the slide.
+
+I've come to think that conversation is the actual work. The schema stuff is hard in a way you can plan for. People are hard in a way that determines whether the plan happens at all.
 
 ## The technical part is the easy part
 
-Sounds counterintuitive. You're replacing a massive legacy system with modern tech. There's database migrations, API changes, deployment strategies, rollback plans.
+This sounds glib, so let me be precise about what I mean. Database migrations, API versioning, deployment strategy, rollback plans - these are difficult, but they're *predictably* difficult. You can decompose them, estimate them, test them, and measure whether they worked.
 
-That stuff is hard, but it's *predictable* hard. You can plan it, test it, measure it.
+What you can't plan around is the engineer who built the old system and reads every design doc as a performance review. The product manager who has a roadmap and does not care that the foundation is on fire. The stakeholder who wants to know why a rewrite of something that already works takes eight months. The new hire who deletes a weird function because it looks dead.
 
-The unpredictable part is people:
-- Engineers who built the legacy system and feel attached to it
-- Product managers who want features, not refactors
-- Stakeholders who don't understand why it takes so long
-- New hires who don't know why things are the way they are
-
-At ImmoScout24, the hardest conversations weren't about database schemas. They were with engineers who had spent years building the old Exposé pages and felt like we were saying their work was bad. We weren't. The requirements had just changed, and the old architecture couldn't bend anymore.
-
-Solve the people problems, and the technical problems become manageable.
+Solve those and the technical problems get manageable. Skip them and the migration stalls somewhere around month four with nobody willing to say so out loud.
 
 ## Never big bang
 
-The temptation is strong: "Let's just rebuild it properly, then switch over."
+The temptation is always the same: build it properly, in parallel, then switch over.
 
-I've never seen this work at scale. What happens instead:
-1. The rebuild takes 2x longer than estimated
-2. The old system keeps getting patched because business can't wait
-3. The systems diverge
-4. The switch-over becomes terrifying
-5. Someone suggests "just a few more months on the rebuild"
-6. Repeat forever
+I have never seen this work at scale, and the failure is boringly consistent. The rebuild runs long. Meanwhile the business can't wait, so the old system keeps getting patched. The two diverge. By the time the new system is "ready" it's missing features the old one grew during the build. The switch-over now looks terrifying to everyone, so it gets deferred, and then deferred again, and eventually the whole thing is quietly shelved and the work evaporates.
 
-I watched this exact pattern kill a rewrite at a company before TourRadar. They spent 18 months building a new booking system in parallel. By month 12, the old system had features the new one didn't. By month 18, nobody wanted to flip the switch. The project was quietly shelved, and all that work evaporated.
+I watched this happen to a booking system rewrite. Well over a year of parallel development, and by the end nobody was willing to flip the switch. Not because the new system was bad. Because flipping it had become an unbounded risk that no individual wanted their name on.
 
-**Do this instead:** Strangle the old system incrementally. Route some traffic to new code. Expand gradually. Old and new coexist until the old naturally dies.
+Strangle it instead. Route some traffic to new code, expand gradually, let old and new coexist until the old one has nothing left to do. It's less satisfying and it works.
 
-At ImmoScout24, we migrated the Exposé (listing) pages over 8 months. Started with the mobile web view for a single city. Then all cities. Then tablet. Then desktop. Users never noticed. That's the goal.
+At ImmoScout24 we did the Exposé pages over several months, starting with mobile web in a single city. Then all cities. Then tablet, then desktop. Users never noticed anything happened, which was the whole point and also the reason nobody outside the team knew it was a big deal.
 
-## Feature flags are your best friend
+I've done this outside of code, too, and less gracefully. Moving from Aktau to Saint Petersburg at 18 was a hard cut-over with no flags and no rollback. It worked out. It also took months of debugging a new life that I could have spread over a longer window if I'd had the option.
 
-Every migration needs:
-- Ability to route % of traffic to new code
-- Ability to instantly roll back
-- Ability to test in production with real data
-- Per-user or per-segment targeting
+## Feature flags
 
-We ran new and old systems in parallel for months. 1% of traffic, then 5%, then 25%, then 50%. Problems surfaced early, at low blast radius.
+Everything above depends on being able to route a percentage of traffic, roll back instantly, test in production against real data, and target specific segments.
 
-At 10% traffic during the ImmoScout24 migration, we discovered the new system was slightly slower on certain property types. Found it in metrics, fixed it, confirmed the fix - all before 90% of users ever saw the new code. Without feature flags, that would have been a production incident.
+We ran old and new in parallel for months, ramping traffic in stages. Somewhere in the low percentages we found that the new system was slower for certain property types - a real regression, in metrics, with a small enough blast radius that we fixed and verified it before most users had ever touched the new code.
+
+Without the flag that's an incident. With it, it's a Tuesday.
 
 ## Measure obsessively
 
-Before touching anything, establish baselines:
-- Performance metrics (latency, throughput, Core Web Vitals)
-- Error rates
-- Business metrics (conversion, engagement, bounce rate)
-- Developer metrics (deploy frequency, incident count)
+Before touching anything, get baselines: latency and Core Web Vitals, error rates, the business metrics that people actually care about, and the developer-facing ones like deploy frequency and incident count.
 
-During migration:
-- Compare new vs. old constantly
-- Set up alerts for regressions
-- Track metrics per feature flag cohort
+Then compare constantly during the migration, alert on regressions, and break the metrics out per flag cohort so you're comparing like with like.
 
-If you can't prove the new system is at least as good as the old one, you're guessing.
-
-At ImmoScout24, we had dashboards showing old vs. new on every metric that mattered. When someone asked "is the new system ready?", we could show them data, not vibes.
+The reason this matters is political as much as technical. "Is the new system ready?" is a question that gets asked in rooms where the answer determines whether you keep going. Having a dashboard means you answer with data instead of confidence, and confidence is not persuasive to someone who has been burned by a migration before.
 
 ## The test suite lie
 
-"We have 90% test coverage, migration will be safe."
+"We have 90% coverage, the migration will be safe."
 
-Legacy test suites often test:
-- Implementation details that will change
-- Happy paths that aren't the real edge cases
-- Mocked dependencies that hide integration issues
+Legacy test suites tend to cover implementation details that are about to change, happy paths that were never the risk, and mocked dependencies that hide exactly the integration failures a migration produces. High coverage of the wrong things reads as safety and isn't.
 
-Before migrating, invest in:
-- End-to-end tests that verify user behavior
-- Contract tests between services
-- Load tests that match production patterns
-
-The tests that give you confidence during migration are different from the tests that existed before.
+What you want before migrating is end-to-end tests that verify user-visible behavior, contract tests between services, and load tests shaped like real traffic. Those are usually a different set of tests than the ones you already have, and writing them is unglamorous prep work that's easy to skip because the coverage number already looks fine.
 
 ## Documentation is archaeology
 
-Legacy systems are full of "why is this here?" code. Before changing anything, document:
-- Known business rules (talk to product, not just code)
-- Historical incidents that shaped the code
-- Integration points and their quirks
-- Performance characteristics and bottlenecks
+At TourRadar I found a function that looked dead. No obvious callers, strange logic, no comments, no tests. I deleted it.
 
-At TourRadar, I found a function that seemed useless - no obvious callers, weird logic, no comments. Deleted it. Turns out it handled a specific payment provider's retry behavior for failed transactions in certain currencies. Took two weeks to figure out why refunds were silently failing. That was a $50k lesson in understanding before deleting.
+It handled a specific payment provider's retry behavior for failed transactions in certain currencies. Refunds started failing silently, and it took us two weeks to connect the failures back to the deletion, because nothing in the stack trace pointed anywhere near it.
 
-Don't delete what you don't understand. Understand first.
+So: before changing anything, write down the business rules - from product, not just from reading code - the incidents that shaped the current design, the integration points and their quirks, and where the performance cliffs are.
+
+Don't delete what you don't understand. I say this with feeling.
 
 ## Bring people along
 
-The worst migrations I've seen happened in isolation. A "tiger team" goes off, builds the new thing, then throws it over the wall.
+The worst migrations I've seen happened in isolation. A small team goes away, builds the new thing, and returns to present it.
 
-I witnessed this at a startup before my ImmoScout24 days. Three senior engineers locked themselves in a room for four months to rebuild the core platform. When they emerged, nobody else understood the new system. The original builders left for other jobs within a year. The company was left with a system nobody could maintain.
+I watched a version of this where a few senior engineers spent months rebuilding a core platform on their own. The system they came back with was better than what it replaced. It was also understood by exactly three people, all of whom had moved on within a year, and the company was left maintaining something nobody could confidently change.
 
-Better approach:
-- Involve engineers who know the legacy system
-- Pair new hires with veterans
-- Share progress weekly (demos, not docs)
-- Celebrate milestones publicly
-- Make it *our* migration, not *my* migration
-
-By the end of the ImmoScout24 migration, the whole team understood both systems. That knowledge distribution was as valuable as the code.
+The alternative is slower and mostly social: involve the engineers who know the legacy system, pair new hires with people who remember why things are the way they are, demo progress rather than writing status docs, and be loud about milestones. By the end of the ImmoScout24 migration the whole team understood both systems. That distribution of knowledge was worth roughly as much as the code.
 
 ## Accept temporary ugliness
 
-Migrations create awkward intermediate states:
-- Two ways to do the same thing
-- Abstraction layers that only exist for compatibility
-- Feature flags checking old vs. new everywhere
-- Duplicated code while both systems run
+Migrations produce genuinely bad-looking intermediate states. Two ways to do the same thing. Compatibility shims that exist for no reason except the transition. Flag checks scattered everywhere. Duplicated logic while both systems run.
 
-This is fine. It's temporary. The goal is safe transition, not beautiful intermediate states.
+This is fine and it's temporary, and the number of migrations I've seen stall because someone wanted the intermediate state to be clean is higher than it should be.
 
-It feels like writing a new song. When my band was working on new material, there was always a phase where the song was just noise - half-formed riffs, placeholder lyrics, wrong tempo, conflicting ideas. If you judged it at that stage, you'd trash it. But that messy phase is where the song figures out what it wants to be. You have to let it be ugly long enough to find its shape.
+It reminds me of the phase in writing a song where it's just noise - half a riff, placeholder lyrics, wrong tempo, three people with incompatible ideas about what it's supposed to be. If you judged it there you'd bin it. But that mess is where the song works out what it wants to be, and skipping it doesn't get you a better song, it gets you no song.
 
-Migrations are the same. The codebase will look bad for a while. That's the cost of not breaking everything at once.
+## Know when not to migrate
 
-I've seen migrations stall because engineers wanted to "do it right." Perfect is the enemy of shipped.
+Sometimes the answer is: leave it alone.
 
-## Know when to stop
+If the legacy system works reliably, isn't blocking anything the business needs, isn't a security risk, and isn't the sole knowledge of one person about to leave - the case for migrating is mostly aesthetic.
 
-Sometimes the right answer is: don't migrate.
+At TourRadar we had a booking confirmation service everyone wanted to rewrite. Outdated framework, ugly code, nobody enjoyed touching it. It also hadn't caused an incident in two years. We left it and spent the time on things that were actually breaking, and I've never regretted it.
 
-If the legacy system:
-- Works reliably
-- Isn't blocking business goals
-- Isn't a security risk
-- Isn't losing institutional knowledge
+The question isn't whether the code is old. It's whether it's causing a problem you need to solve.
 
-...maybe leave it alone. Migration for migration's sake is expensive.
+## The pit
 
-At TourRadar, we had an old booking confirmation service that everyone wanted to rewrite. It was ugly, used an outdated framework, and nobody liked working on it. But it worked. It hadn't caused an incident in two years. We left it alone and focused our energy on things that were actually breaking.
+Every long migration has a stretch in the middle where the new system handles most cases and keeps breaking on the rest - unusual data shapes, legacy formats, features nobody remembers requesting. Morale drops. People start floating the idea of reverting, usually as a joke, then not as a joke.
 
-The question isn't "is this code old?" It's "is this code causing problems we need to solve?"
+We got there a few months into the ImmoScout24 migration. What got us out wasn't pushing harder. It was narrowing: we kept the old system running for the strange minority of cases and moved the ordinary majority over, then picked off the edge cases one at a time over the following months.
 
-## The emotional arc
+That's the least heroic possible answer and it's the one that worked.
 
-Every long migration follows a pattern:
+## The playbook
 
-1. **Excitement** - "We're finally fixing this!"
-2. **Discovery** - "Oh, it's more complex than we thought"
-3. **The Pit** - "This is taking forever and nothing works"
-4. **Momentum** - "Wait, things are actually improving"
-5. **Victory** - "We did it, and it's better"
+Measure the old system. Define what success means before you start. Build the smallest new implementation that does one real thing. Route a sliver of traffic. Fix what breaks. Increase gradually. Repeat until the old system has no traffic. Then actually delete it, which everyone skips, which is how you end up migrating the same system twice.
 
-The Pit is where migrations die. At ImmoScout24, we hit The Pit around month 4. The new system worked for most pages but kept breaking on edge cases - unusual property types, legacy data formats, features nobody remembered adding. Morale dropped. People started questioning if we should just revert.
-
-We pushed through by narrowing scope. Instead of trying to handle every edge case, we kept the old system running for the weird 5% and focused on migrating the normal 95%. The edge cases got picked off one by one over the following months.
-
-The other side is worth it.
-
-## My playbook
-
-1. Measure the old system thoroughly
-2. Define success criteria upfront
-3. Build the smallest possible new implementation
-4. Route 1% of traffic
-5. Fix what breaks
-6. Increase traffic gradually
-7. Repeat until old system is dead
-8. Remove old code (don't skip this!)
-9. Celebrate
-
-It's not glamorous. But it works.
-
----
-
-These days I'm mostly migrating individual features instead of entire platforms. Same principles, smaller blast radius, identical human dynamics.
+These days I mostly migrate individual features rather than platforms. Smaller blast radius, same principles, and the human dynamics are identical at every scale I've seen.

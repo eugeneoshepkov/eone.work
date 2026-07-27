@@ -6,34 +6,25 @@ tags: [AI, Engineering]
 featured: false
 ---
 
-I spent the last year building Text-to-SQL features at one company. The pitch was simple: let business users ask questions in plain English and get charts. The demo took a week. Getting it production-ready took months.
+The week we launched Text-to-SQL, someone typed "can u show rev monthly?" into the box and got nothing back.
 
-Here's what actually matters when an LLM feature has to behave like a product, not a party trick.
+We had tested "Show me revenue by month" approximately four hundred times. We had not tested the version a real person types with one hand while on a call. That first week was full of these: abbreviations we hadn't anticipated, metric names that existed in people's heads but not in our schema, questions that assumed context from a meeting we weren't in, and a handful of queries in languages the product didn't officially support.
 
-## The demo → production gap is enormous
+The demo had taken about a week to build. Making it behave like a product took months, and almost none of those months were about the model.
 
-Demo: "Show me revenue by month"
-→ Works perfectly, stakeholders clap, budget approved
+## The demo to production gap
 
-Production:
-- "can u show rev monthly?" - typos, abbreviations
-- "Show me the thing we looked at yesterday" - context you don't have
-- "Revenue but only for products we still sell" - business logic the model doesn't know
-- "更多收入数据" - users who don't speak English
+Demo conditions are a controlled environment and controlled environments lie to you. This is the same failure mode as mixing a track on studio headphones: it sounds enormous, you're thrilled, and then it collapses on a cheap Bluetooth speaker because you spent four hours on the low end in a room where you could actually hear the low end.
 
-This is exactly like music production. A mix can sound massive in your studio headphones and completely collapse on a cheap Bluetooth speaker or a club PA. The controlled environment lies to you. Demos are headphones. Production is the venue with bad acoustics and a crowd that doesn't care how hard you worked on the hi-hats.
+A large share of what hit us in that first week was stuff we'd never tested. Not exotic stuff, either. Just the ordinary variance of people who don't know or care what your parser expects.
 
-The first week after launch, 40% of queries were things we'd never tested. Abbreviations we didn't anticipate. Metric names that existed in users' heads but not in our schema. Questions that assumed context from a meeting we weren't in.
-
-Every edge case in demos becomes the common case in production. Plan for it.
+Every edge case in a demo becomes a common case in production. That's not a cute aphorism, it's a budgeting instruction: assume the long tail is most of your work.
 
 ## Prompt engineering is software engineering
 
-Early on, I treated prompts as magic strings. That doesn't scale.
+For a while I treated prompts as magic strings, which worked until one Friday afternoon when I tweaked a prompt to fix an edge case and broke how date ranges were interpreted across several dashboards. I found out Monday. No tests, no review, just vibes.
 
-One Friday afternoon, I tweaked a prompt to fix an edge case. Monday morning, three dashboards were broken because I'd accidentally changed how date ranges were interpreted. No tests. No review. Just vibes-based prompt editing.
-
-Now I treat prompts like code:
+Now prompts get built like anything else:
 
 ```typescript
 const buildAnalyticsPrompt = ({
@@ -59,113 +50,76 @@ Generate a SQL query that...
 `;
 ```
 
-Prompts should be:
-- Parameterized
-- Version controlled
-- Tested
-- Reviewed like any other code
-- Observable (logged with version, model, and inputs)
-
-We built a prompt testing framework that runs the same 200 queries against every prompt change. Boring, but it catches regressions before users do.
+Parameterized, version controlled, tested, reviewed, and logged with the model and inputs that produced each output. We ended up with a regression suite that runs a fixed set of queries against every prompt change. It is deeply boring and it has caught things before users did, which is the entire job.
 
 ## Fallbacks are not optional
 
-LLMs fail. Not sometimes - regularly. You need:
+LLMs fail regularly, not occasionally, and the difference between a feature people trust and one they abandon is almost entirely in what happens on failure. You need input validation so obviously bad queries don't cost an API call, aggressive timeouts, some notion of confidence, graceful degradation that shows a human-readable error rather than a stack trace, a path for users to report problems that someone actually reads, and enough telemetry to replay a bad interaction later.
 
-1. **Input validation** - Catch obviously bad queries before wasting API calls
-2. **Timeout handling** - Set aggressive timeouts, have fallbacks
-3. **Confidence scoring** - If the model isn't sure, don't pretend it is
-4. **Graceful degradation** - Show a helpful error, not a stack trace
-5. **Human escalation** - Let users report issues, actually read the reports
-6. **Telemetry + replay** - Capture inputs/outputs so you can debug and build evaluation datasets
+The single highest-leverage thing we shipped was the least clever: when confidence was low, instead of guessing, the product said "I'm not sure I understood that - did you mean X, Y, or Z?"
 
-Our error rate dropped 60% when we added a simple "I'm not sure I understood that. Did you mean X, Y, or Z?" response for low-confidence outputs. Users preferred being asked to clarify over getting a wrong chart.
+Users overwhelmingly preferred being asked over being handed a confidently wrong chart. I think about that more than anything else on this list. The instinct is always to make the system seem capable. The thing that built trust was letting it seem uncertain.
 
 ## Latency is a feature
 
-GPT-4 is smarter than GPT-3.5-turbo. It's also 5x slower. For many use cases, speed matters more than marginal intelligence improvement.
+The smarter model was meaningfully slower. For a lot of queries that trade wasn't worth it, so we split traffic: a fast model for simple queries, a smarter one for complex ones, and a small classifier deciding which is which.
 
-We run a two-tier system:
-- Fast model for simple queries (70% of traffic)
-- Smart model for complex ones (30% of traffic)
-- A small classifier decides which tier to use
-
-Average latency dropped from 4s to 1.2s. User satisfaction went up more than when we improved accuracy. People will tolerate a slightly dumber answer if it's instant. They won't tolerate a perfect answer that takes 8 seconds.
-
-It's like the difference between a live show and a studio recording. Live, you can't spend 20 minutes getting the perfect take. You play what you can play in real time, and the energy matters more than perfection.
+Average latency dropped substantially and satisfaction moved more than it had when we improved accuracy. People will forgive a slightly dumber answer that arrives immediately. They will not sit through a perfect answer that takes eight seconds, because at eight seconds they've already alt-tabbed away and the answer arrives to an empty room.
 
 ## Context windows are for data, not instructions
 
-With 128k context windows, it's tempting to dump everything in. Don't.
+With a big context window it's tempting to dump everything in. We tried it - full schema, all business rules, recent conversation history, documentation excerpts.
 
-We tried the "give it everything" approach early on. Full schema. All business rules. Last 10 conversations. Documentation excerpts. Response quality actually got worse - the model started hallucinating connections between unrelated tables, probably because we'd given it too many options.
+Quality got worse. The model started inventing relationships between unrelated tables, presumably because we'd handed it a hundred tables and asked it to find the three that mattered.
 
-**Bad pattern:**
+Bad:
+
 ```
 Here are all our tables, all columns, all business rules,
 all previous conversations, all documentation...
 ```
 
-**Better pattern:**
+Better:
+
 ```
 Here are the 3 tables relevant to this query, their key columns,
 and 2 business rules that apply.
 ```
 
-Focused context = better outputs + faster responses + lower costs.
+Retrieval is the feature. The context window is just where you put the result.
 
-## Users don't want AI, they want answers
+## Users don't want AI
 
-This sounds obvious but it's easy to forget. Nobody cares that you're using GPT-4o. They care whether they can get their revenue report without bothering an analyst.
+Nobody cares which model you're using. They care whether they can get their revenue report without booking time with an analyst.
 
-We removed all mentions of "AI" from the UI. It's just a search box now. No "AI-powered!" badges. No "Generated by AI" disclaimers on every output.
+We took the AI language out of the interface. No badges, no "powered by" copy, no per-output disclaimers. It's a search box.
 
-Users trust it more because we don't draw attention to the technology. The moment you slap an AI badge on something, users start looking for flaws.
+Trust went up, and my read is that the badge was functioning as an invitation to audit. Label something as AI-generated and people start hunting for the seam. Ship it as a feature that works and they evaluate it the way they evaluate everything else, which is to say by whether it was useful.
+
+I want to be careful here, because this cuts both ways and I've gone back and forth on it. Hiding the machine is fine when the stakes are a bar chart someone will sanity-check anyway. It's not fine when the output is advice someone might act on without checking. We were in the first category. Know which one you're in.
 
 ## Measure what matters
 
-We tracked:
-- Query success rate
-- Result accuracy (sampled and human-verified weekly)
-- User satisfaction (thumbs up/down on results)
-- Time to insight
-- Retry rate (users rephrasing the same question)
+Query success rate. Accuracy, sampled and verified by a human on a regular cadence. Thumbs up and down. Time to insight. Retry rate, meaning how often someone rephrases the same question - which turned out to be our best early warning signal, because a retry is a user telling you the product failed without bothering to file anything.
 
-We didn't track:
-- How "impressive" the AI responses sounded
-- How many features used AI
-- Lines of prompt code
+What we deliberately didn't track: how impressive the responses sounded, how many features used AI, or anything else that looks good on a slide and doesn't correlate with someone getting their answer.
 
-The first list tells you if you're solving user problems. The second is vanity metrics that make investors happy but don't correlate with user value.
+## Know when not to use it
 
-## Know when to not use AI
+Queries that map to a known template should use the template. Ambiguous requests should trigger a question, not a guess. High-stakes actions should require confirmation. And anything with an existing reliable solution should keep using it.
 
-Some things don't need LLMs:
-- Queries that map directly to a known template → use the template
-- Ambiguous requests that need clarification → just ask the user
-- High-stakes decisions → require human confirmation
-- Anything with existing reliable solutions → don't over-engineer
+We added AI to six features and pulled it back out of two. One was a date range parser, where a handful of regex patterns turned out to handle nearly everything faster, cheaper, and more predictably than a model call. That was a mildly humbling PR to write.
 
-We added AI to 6 features. We removed it from 2 after realizing simpler approaches worked better. One was a date range parser - turns out a handful of regex patterns handled 95% of cases faster and more reliably than an LLM call.
+## The tech moves faster than you ship
 
-## The tech is moving faster than you can ship
+Prompts tuned for one model failed on another. Not degraded - failed, in ways that required rewriting rather than tweaking. You can't swap providers the way you swap cloud regions.
 
-Every quarter, better models come out. Prompts that worked perfectly break. Costs change. New capabilities emerge.
+So: abstract the provider, make prompts configurable without a deploy, build an evaluation suite you can point at new models, and don't build your product on one vendor's proprietary feature unless you're prepared to rebuild that part.
 
-We had prompts tuned for GPT-4 that completely failed when we tested Claude. Different models have different quirks. You can't just swap providers like switching cloud regions.
+## Was it worth it
 
-Design for change:
-- Abstract the LLM provider
-- Make prompts configurable without deploy
-- Build evaluation suites you can run against new models
-- Don't bet everything on one provider's specific features
+Text-to-SQL became the most-used analytics surface we had. People who'd never written a query started building their own dashboards, and product managers stopped queueing behind analyst availability.
 
-## It's worth it
+The technology is genuinely imperfect and I spent a lot of that year annoyed at it. But it moved the bottleneck off a small number of people who knew SQL, and that turned out to matter more than any of the accuracy work.
 
-Despite all the challenges, the Text-to-SQL feature became our most-used analytics tool. Users who never touched SQL now build their own dashboards. Product managers stopped waiting for analyst bandwidth. The VP of Sales makes his own pipeline reports.
-
-That's the point. The technology is imperfect, but it unlocks capabilities that weren't possible before. That's why we deal with the complexity.
-
----
-
-More on my LLM work: [Text-to-SQL project](/projects/text-to-sql)
+More on this: [Text-to-SQL project](/projects/text-to-sql)

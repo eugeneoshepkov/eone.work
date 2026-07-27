@@ -6,27 +6,21 @@ tags: [Design, Engineering]
 featured: false
 ---
 
-I've built or contributed to design systems at every company I've worked at. At ImmoScout24, the system felt like a superpower - we could ship new listing page variants in hours instead of days. At an earlier startup, the system turned into a parts bin nobody trusted. Same idea, opposite outcomes.
+At TourRadar I inherited a dashboard where "success" was green in one component, blue in another, and purple in a third. Every engineer had a reason. Blue matched the brand. Green was obviously success. Purple because blue was already doing links.
 
-The pattern was consistent: the ones that worked had tight constraints. The ones that rotted had too many options.
+All three were defensible. The result was that the color meant nothing at all.
+
+We spent a sprint consolidating, which is a sprint nobody enjoys and nobody gets credit for. That's the bill that arrives when constraints aren't set upfront.
 
 ## The components aren't the system
 
-Most "design systems" are just component libraries. A Button. A Modal. A Dropdown. Ship to npm, call it a day.
+Most "design systems" are component libraries. A Button. A Modal. A Dropdown. Ship to npm, call it a day. Six months later you have four buttons and an argument.
 
-That's not a system. That's a parts bin.
-
-A real design system is the constraints that make those components feel cohesive:
-- The spacing scale
-- The color relationships
-- The typography hierarchy
-- The interaction patterns
-
-Get the constraints right, and components almost design themselves.
+What actually makes a UI feel like one product is the layer underneath: the spacing scale, the color relationships, the type hierarchy, the interaction patterns. Get those right and the components mostly design themselves, because at any decision point there are only two or three legal answers.
 
 ## Tokens before components
 
-Before writing any React components, define your tokens:
+Before writing any React, define the tokens:
 
 ```css
 :root {
@@ -48,91 +42,62 @@ Before writing any React components, define your tokens:
 }
 ```
 
-Notice what's NOT here:
-- No `--blue-500` (too literal)
-- No `--spacing-17` (gaps in scale create rhythm)
-- No `--border-radius-xl-2` (too many options)
+The interesting part is what's missing. No `--blue-500`, because naming a token after its current value guarantees you rename it the first time the brand shifts. No `--spacing-17`, because the gaps in the scale are what create rhythm; if every value exists, no value is a decision. No `--border-radius-xl-2`, because at that point you've built a configuration language, not a system.
 
-Constraints are features.
+I learned this from music before I learned it from UI, and I'm slightly embarrassed by how long it took to transfer. At 15 I'd spend entire evenings noodling on guitar and finish nothing. Everything was possible, so nothing got done. What broke the pattern was arbitrary rules: four chords, two hours, bridge pickup only. I started finishing songs almost immediately. Not because the rules made the songs better - because they killed the part of the process where I sat there evaluating options.
 
-This clicked for me in music first. When I was learning guitar at 15, I'd spend hours noodling without finishing anything. Then I started setting arbitrary limits: four chords only, finish in two hours, use only the bridge pickup. Suddenly I was completing songs. The constraints killed decision paralysis.
+Tokens do that for interfaces. Eight spacing values and five colors means you stop debating and start building. The taste is baked into the defaults, so it doesn't have to be relitigated in every PR.
 
-Tokens and scales do the same thing for UI. They turn taste into defaults. When you only have 8 spacing values and 5 colors, you stop debating and start building.
+## The 4px grid
 
-## The 4px grid is non-negotiable
+Every spacing value a multiple of 4: 4, 8, 12, 16, 24, 32, 48, 64.
 
-Every spacing value should be a multiple of 4:
-- 4, 8, 12, 16, 24, 32, 48, 64
+Things align. Spacing looks intentional rather than accidental. And once designers and engineers both think in 4px increments, the conversation changes shape - "can we add a bit more space here" becomes "should this be 16 or 24," which is a question with an answer.
 
-Why? Because it creates visual rhythm. Things align. Spacing feels intentional, not random.
+That last part mattered more than the visual consistency, honestly. Design review stopped being a negotiation.
 
-When designers and engineers both think in 4px increments, communication gets easier. "Can we add a bit more space?" becomes "Should this be 16 or 24?"
-
-At ImmoScout24, adopting a strict 4px grid across the Exposé pages cut our design review time in half. Fewer arguments about "a little more padding here."
-
-## Symmetrical padding matters more than you think
+## Symmetrical padding matters more than you'd think
 
 This looks wrong:
+
 ```css
 padding: 24px 16px 12px 16px;
 ```
 
 This looks right:
+
 ```css
 padding: 16px;
 ```
 
-When top/bottom/left/right don't match, cards look unbalanced. Users can't articulate why, but they feel it.
+When the four sides don't relate to each other, cards look subtly off-balance. Users can't articulate it and will never file a bug about it. They just find the product slightly cheaper-feeling.
 
-If you need different horizontal and vertical padding, make it intentional:
-```css
-padding: 12px 16px;
-```
+If you need different horizontal and vertical padding, make it deliberate - `padding: 12px 16px` - rather than `padding: 13px 17px 11px 18px`, which is what happens when someone nudges values until it looks okay on their monitor.
 
-Not:
-```css
-padding: 13px 17px 11px 18px;
-```
+## Color is for meaning
 
-## Color is for meaning, not decoration
+In a system that works, color carries information: red for danger, green for success, yellow for warning, accent for "you can click this," gray for everything else.
 
-In a good system, color communicates:
-- Red = error/danger
-- Green = success
-- Yellow = warning
-- Accent = interactive/actionable
-- Everything else = gray
-
-If your UI has 47 colors, none of them mean anything.
-
-At TourRadar, I inherited a dashboard where "success" could be green, blue, or purple depending on who built that component. One engineer used blue for positive metrics because it matched the brand. Another used green because it was "obviously" success. A third used purple because blue was already taken for links. Users had no idea what any of it meant.
-
-We spent a full sprint just consolidating colors. That's the tax you pay when constraints aren't set upfront.
+Once you're past a handful of semantic colors, none of them communicate anything. The dashboard I mentioned at the top wasn't ugly. It was just mute.
 
 ## Typography hierarchy, not typography variety
 
-You need:
-- One font family (maybe two if you need monospace)
-- 4-5 size stops
-- 2-3 weights
-
-That's it.
+One font family, maybe two if you need mono. Four or five size stops. Two or three weights.
 
 ```css
---text-xl: 24px;
---text-lg: 18px;
+--text-xs: 12px;
+--text-sm: 14px;
 --text-md: 16px;
---text-base: 14px;
---text-sm: 12px;
+--text-lg: 18px;
+--text-xl: 24px;
 ```
 
-When I see systems with 12 font sizes and 6 weights, I know decisions are being deferred to individual components. That's how inconsistency creeps in.
-
-It's like a band where everyone picks their own reverb settings. The parts might sound good in isolation, but the mix is a mess.
+When I open a system with twelve font sizes and six weights, I know the decisions were deferred to individual components. Which means they were made twelve different times by twelve different people, none of whom were wrong.
 
 ## Build for composition, not configuration
 
 Bad API:
+
 ```jsx
 <Button
   variant="primary"
@@ -148,7 +113,8 @@ Bad API:
 />
 ```
 
-Better API:
+Better:
+
 ```jsx
 <Button>
   <CheckIcon />
@@ -157,61 +123,32 @@ Better API:
 </Button>
 ```
 
-Components should be small and composable. Configuration props lead to combinatorial explosion - 10 props with 3 options each = 59,049 variants to test.
+Ten props with three options each is 59,049 combinations. You will test maybe eight of them. The other 59,041 are undefined behavior you've committed to supporting.
 
-## The best documentation is colocated examples
+## Documentation nobody reads
 
-Most people don't browse design system documentation sites. They search for a component, skim an example, copy it, and move on.
+Nobody browses a design system documentation site. They search for a component, skim one example, copy it, and leave.
 
-What works:
-- Storybook with real variants
-- Copy-paste examples next to the component
-- Examples pulled from the actual codebase
-
-What tends to get ignored:
-- Separate documentation portals
-- Long prose about "usage guidelines"
-- Philosophical principles without enforceable defaults
+So the documentation that works is the documentation that's in the way: Storybook with real variants, copy-paste examples sitting next to the component, snippets pulled from actual production code. What gets ignored is the separate portal with prose about usage guidelines and philosophical principles that aren't enforceable by a linter.
 
 Engineers want to see code. Show them code.
 
-## When to break the system
+## When to break it
 
-A design system is a tool, not a religion. Sometimes the right choice is to break the rules:
+A design system is a tool, not a religion. Marketing pages need expressive design that the system will fight. Special features sometimes warrant custom components. Experiments should be allowed to move fast and be ugly.
 
-- Marketing pages often need more expressive design
-- Special features might warrant custom components
-- Experiments should be able to move fast
-
-The system should make the 80% case trivial, not make the 20% case impossible.
+The system should make the common case trivial without making the unusual case impossible. If people are routinely working around it, that's information about the system, not about the people.
 
 ## Systems that grow vs. systems that rot
 
-At one company (I'll spare them the name), I watched a design system grow from 40 components to 400+ over three years. By the end, only about 50 were actually used in production. The rest were variants somebody asked for once, edge cases that never recurred, or abandoned experiments nobody deleted.
+I've watched a system balloon from a few dozen components to several hundred over about three years. Most of the additions were variants somebody requested once, edge cases that never recurred, or abandoned experiments nobody deleted. By the end, a decent chunk of the library had no production usage at all.
 
-Every new hire had to wade through the graveyard to find the real components. The system had become the thing slowing people down.
+New hires had to wade through the graveyard to find the real components. The thing built to speed people up had become the thing slowing them down.
 
-Healthy systems:
-- Have a small core that's tightly controlled
-- Allow extension through composition
-- Get updated based on real usage patterns
-- Remove things that aren't used
-
-Unhealthy systems:
-- Add variants for every request
-- Never deprecate anything
-- Become "too big to refactor"
-
-If you never delete from your design system, it's already rotting.
+Healthy systems keep a small core under tight control, allow extension through composition, update based on what people actually use, and - this is the one everybody skips - delete things.
 
 ## The goal is consistency, not control
 
-Design systems succeed when they make the right thing easy. They fail when they make everything hard.
+Systems succeed when they make the right thing easy and fail when they make everything hard. If engineers are constantly fighting the system, working around it, or quietly avoiding it, the system has failed. Not the engineers.
 
-If engineers are constantly fighting the system, working around it, or avoiding it entirely - the system has failed. Not the engineers.
-
-Build systems that feel like help, not handcuffs.
-
----
-
-These days I start with tokens and a couple primitives, then let real usage dictate what becomes a component. The smallest system that works tends to stay healthy the longest.
+These days I start with tokens and two or three primitives and let real usage decide what earns the right to become a component. The smallest system that works seems to stay healthy the longest, though I'll admit I've never run one long enough to be sure that's causation rather than just having less surface area to rot.
