@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import { ArrowRightIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { Seo } from "@/components/seo/Seo";
-import { getFeaturedProjects, getRecentPosts } from "@/lib/content";
+import { getFeaturedProjects, getRecentPosts, getSpotlightProject } from "@/lib/content";
 import { getPersonSchema, SITE_NAME, toAbsoluteUrl } from "@/lib/seo";
 import styles from "./Home.module.css";
 
 export function Home() {
   const recentPosts = getRecentPosts(3);
   const featuredProjects = getFeaturedProjects(3);
+  const spotlight = getSpotlightProject();
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -53,6 +54,37 @@ export function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Spotlight Project */}
+      {spotlight && (
+        <section className={styles.section}>
+          <article className={styles.spotlight}>
+            {spotlight.image && (
+              <Link to={`/projects/${spotlight.slug}`} className={styles.spotlightImageLink}>
+                <img src={spotlight.image} alt={spotlight.title} className={styles.spotlightImage} />
+              </Link>
+            )}
+            <div className={styles.spotlightBody}>
+              <span className={styles.spotlightEyebrow}>Featured project</span>
+              <h2 className={styles.spotlightTitle}>
+                <Link to={`/projects/${spotlight.slug}`}>{spotlight.title}</Link>
+              </h2>
+              <p className={styles.spotlightDescription}>{spotlight.description}</p>
+              <div className={styles.spotlightCta}>
+                {spotlight.liveUrl && (
+                  <a href={spotlight.liveUrl} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">
+                    Open dashboard
+                    <ArrowUpRightIcon size={16} />
+                  </a>
+                )}
+                <Link to={`/projects/${spotlight.slug}`} className={styles.secondaryButton}>
+                  How it's built
+                </Link>
+              </div>
+            </div>
+          </article>
+        </section>
+      )}
 
       {/* Featured Posts */}
       {recentPosts.length > 0 && (

@@ -115,19 +115,24 @@ export function getProjects(): Project[] {
       liveUrl: (metadata.liveUrl as string) || undefined,
       repoUrl: (metadata.repoUrl as string) || undefined,
       featured: (metadata.featured as boolean) || false,
+      spotlight: (metadata.spotlight as boolean) || false,
       content: body,
     });
   }
 
-  return projects;
+  return projects.sort((a, b) => Number(!!b.spotlight) - Number(!!a.spotlight));
 }
 
 export function getProject(slug: string): Project | undefined {
   return getProjects().find((project) => project.slug === slug);
 }
 
+export function getSpotlightProject(): Project | undefined {
+  return getProjects().find((project) => project.spotlight);
+}
+
 export function getFeaturedProjects(limit = 3): Project[] {
-  const projects = getProjects();
+  const projects = getProjects().filter((p) => !p.spotlight);
   const featured = projects.filter((p) => p.featured);
   return featured.length > 0 ? featured.slice(0, limit) : projects.slice(0, limit);
 }

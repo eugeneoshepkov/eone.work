@@ -4,12 +4,13 @@ description: Five years of my Kindle reading, rebuilt from Amazon's data export 
 image: /projects/kindle-reading/overview.webp
 tags: [TypeScript, React, Bun, Data]
 featured: true
+spotlight: true
 liveUrl: https://read.eone.work/
 ---
 
 Everything I've read on Kindle since June 2021. 1,180 hours across 179 books, 90 of them finished. Live at [read.eone.work](https://read.eone.work/).
 
-It's built from Amazon's privacy export, the giant zip you get when you request your data. The story of taming that archive is in [Building a Reading Dashboard from Amazon Kindle Exports](/blog/kindle-reading-insights). This page is about what the dashboard shows now and what I had to fix to trust it.
+It's built from Amazon's privacy export, the giant zip you get when you request your data: hundreds of CSV and JSON files, built for compliance, not for reading. This page covers what the dashboard shows and what I had to fix before I trusted it.
 
 ## My first version counted every hour twice
 

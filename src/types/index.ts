@@ -18,6 +18,7 @@ export interface Project {
   liveUrl?: string;
   repoUrl?: string;
   featured?: boolean;
+  spotlight?: boolean;
   content?: string;
 }
 
