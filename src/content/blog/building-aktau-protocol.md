@@ -87,7 +87,7 @@ You start the city builder with 50 residents. Click **Build housing** and 25 mor
 
 ![Two children write a postcard at the kitchen table in their new flat in Shevchenko](/projects/aktau-protocol/family-postcard.webp)
 
-*An AI-generated illustration from the Chronicle album I'm testing. Each of the 19 stories has its own illustration, and the reading page links to the historical source.*
+*The new family's postcard, one of 19 AI-generated illustrations in the Shevchenko Chronicle. The latest story you discover goes on the cover of your album. Open it to read the story and follow the link to its source.*
 
 One of those sources has a family connection. In a letter, a researcher who worked inland at Melovoye remembered my grandfather helping design a field tower the crew called a “robot.” His published paper has a photograph of one. That's the tower you can visit in the game's optional field season. [The field photograph, figure 7](https://www.ijsred.com/volume3/issue3/IJSRED-V3I3P169.pdf#page=4)
 
