@@ -3,12 +3,12 @@ title: Building a Game About My Hometown Without Writing Code
 description: Four days to build a browser game about Aktau with AI, then a return to the Caspian waterfront to put the places and small rituals of Shevchenko into the game.
 date: 2026-01-16
 updated: 2026-11-26
-image: https://aktau.eone.work/pictures/aktau-protocol-coast.jpg
+image: /projects/aktau-protocol/aktau-protocol-coast.jpg
 tags: [Engineering, AI, Music]
 featured: true
 ---
 
-![Aktau Protocol title art, with apartment blocks, the power station and families on the Caspian shore at sunset](https://aktau.eone.work/pictures/aktau-protocol-coast.jpg)
+![Aktau Protocol title art, with apartment blocks, the power station and families on the Caspian shore at sunset](/projects/aktau-protocol/aktau-protocol-coast.jpg)
 
 There's no river in Aktau. Almost no rainfall. I grew up on the shore of the Caspian Sea, and the water that came out of our taps had once been seawater.
 
@@ -41,19 +41,19 @@ I also kept a Gemini window open as a second opinion when I wanted something che
 
 **Day 1:** Core mechanics. Building placement, resource production, reactor temperature.
 
-![Day 1 - Core mechanics and building placement](https://aktau.eone.work/pictures/screenshots/day1-thumb.png)
+![Day 1 - Core mechanics and building placement](/projects/aktau-protocol/day1-thumb.png)
 
 **Day 2:** Visual work. Diorama terrain with an organic coastline, animated water, camera constraints, a keyboard shortcuts modal, and a historical chronicle using real Aktau facts.
 
-![Day 2 - Diorama terrain and visual polish](https://aktau.eone.work/pictures/screenshots/day2-thumb.png)
+![Day 2 - Diorama terrain and visual polish](/projects/aktau-protocol/day2-thumb.png)
 
 **Day 3:** Tutorial with mission objectives, thermal plant building, full i18n for English and Russian, UI cleanup.
 
-![Day 3 - Tutorial system and i18n](https://aktau.eone.work/pictures/screenshots/day3-thumb.png)
+![Day 3 - Tutorial system and i18n](/projects/aktau-protocol/day3-thumb.png)
 
 **Day 4:** Capacity limits on how many buildings a producer can supply, game-over states with narrative endings, population growth.
 
-![Day 4 - Capacity system and game-over states](https://aktau.eone.work/pictures/screenshots/day4-thumb.png)
+![Day 4 - Capacity system and game-over states](/projects/aktau-protocol/day4-thumb.png)
 
 Four days from nothing to playable. I want to be careful about what that does and doesn't prove: it's four days of building a small game with well-understood mechanics, by someone who knows how to review code and describe systems precisely. It is not four days of building something novel, and the balance is still wrong in places I haven't fixed.
 
