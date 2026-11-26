@@ -111,6 +111,7 @@ export function getProjects(): Project[] {
       title: (metadata.title as string) || slug,
       description: (metadata.description as string) || '',
       image: (metadata.image as string) || undefined,
+      thumbnail: (metadata.thumbnail as string) || undefined,
       tags: (metadata.tags as string[]) || [],
       liveUrl: (metadata.liveUrl as string) || undefined,
       repoUrl: (metadata.repoUrl as string) || undefined,
@@ -120,7 +121,7 @@ export function getProjects(): Project[] {
     });
   }
 
-  return projects.sort((a, b) => Number(!!b.spotlight) - Number(!!a.spotlight));
+  return projects;
 }
 
 export function getProject(slug: string): Project | undefined {
@@ -132,7 +133,7 @@ export function getSpotlightProject(): Project | undefined {
 }
 
 export function getFeaturedProjects(limit = 3): Project[] {
-  const projects = getProjects().filter((p) => !p.spotlight);
+  const projects = getProjects();
   const featured = projects.filter((p) => p.featured);
   return featured.length > 0 ? featured.slice(0, limit) : projects.slice(0, limit);
 }

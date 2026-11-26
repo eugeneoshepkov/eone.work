@@ -2,6 +2,7 @@
 title: Music
 description: Metalcore vocals + guitar (Exage), side projects (Harvard Process, Discrepancy), and AI-assisted experiments (Caspian Ghost).
 tags: [Music, AI]
+thumbnail: /projects/music/thumbnail.webp
 featured: true
 ---
 

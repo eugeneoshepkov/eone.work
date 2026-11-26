@@ -2,7 +2,7 @@
 title: Legacy Migration at Scale
 description: Zero-downtime migration of a high-traffic listing experience to TypeScript/React, with performance and testing modernization.
 tags: [TypeScript, React, GraphQL, MongoDB]
-featured: true
+featured: false
 ---
 
 This migration had the worst combination of constraints: high traffic, SEO-sensitive pages, and a business that still needed feature work while we rewired the foundation.

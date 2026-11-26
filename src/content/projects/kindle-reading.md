@@ -2,6 +2,7 @@
 title: Kindle Reading Dashboard
 description: Five years of my Kindle reading, rebuilt from Amazon's data export - every hour, every finished book, and when I actually read.
 image: /projects/kindle-reading/overview.webp
+thumbnail: /projects/kindle-reading/thumbnail.webp
 tags: [TypeScript, React, Bun, Data]
 featured: true
 spotlight: true

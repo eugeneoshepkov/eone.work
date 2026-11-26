@@ -11,6 +11,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, style }: ProjectCardProps) {
   const { ref, isVisible } = useInView();
+  const thumbnail = project.thumbnail ?? project.image;
 
   return (
     <article
@@ -19,9 +20,9 @@ export function ProjectCard({ project, style }: ProjectCardProps) {
       style={style}
     >
       <Link to={`/projects/${project.slug}`} className={styles.link}>
-        {project.image && (
+        {thumbnail && (
           <div className={styles.imageWrapper}>
-            <img src={project.image} alt={project.title} className={styles.image} />
+            <img src={thumbnail} alt="" loading="lazy" className={styles.image} />
           </div>
         )}
 

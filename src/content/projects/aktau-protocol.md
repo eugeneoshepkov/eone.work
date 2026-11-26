@@ -2,6 +2,7 @@
 title: Caspian Atom: The Aktau Protocol
 description: A browser game about my hometown on the Caspian Sea. Keep a waterfront district supplied, join the ice-cream queue in Shevchenko, or host a field team at Melovoye.
 image: /projects/aktau-protocol/waterfront.webp
+thumbnail: /projects/aktau-protocol/thumbnail.webp
 tags: [TypeScript, AI, Babylon.js]
 featured: true
 liveUrl: https://aktau.eone.work/

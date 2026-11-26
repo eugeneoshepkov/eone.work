@@ -5,7 +5,7 @@ import { toAbsoluteUrl } from '@/lib/seo';
 import styles from './Projects.module.css';
 
 export function Projects() {
-  const projects = getProjects();
+  const projects = getProjects().sort((a, b) => Number(!!b.spotlight) - Number(!!a.spotlight));
 
   const projectsSchema = {
     '@context': 'https://schema.org',
