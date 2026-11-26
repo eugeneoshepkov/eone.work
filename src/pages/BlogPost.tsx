@@ -7,7 +7,7 @@ import { Seo } from '@/components/seo/Seo';
 import { Tag } from '@/components/ui/Tag';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { getBlogPost, getBlogPosts } from '@/lib/content';
-import { AUTHOR_NAME, toAbsoluteUrl } from '@/lib/seo';
+import { AUTHOR_NAME, DEFAULT_IMAGE_PATH, toAbsoluteUrl } from '@/lib/seo';
 import styles from './BlogPost.module.css';
 
 export function BlogPostPage() {
@@ -40,6 +40,7 @@ export function BlogPostPage() {
   }
 
   const postUrl = `/blog/${post.slug}`;
+  const imagePath = post.image ?? DEFAULT_IMAGE_PATH;
   const publishedTime = new Date(post.date).toISOString();
   const wordCount = post.content.split(/\s+/).filter(Boolean).length;
   const blogPostingSchema = {
@@ -48,7 +49,7 @@ export function BlogPostPage() {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     mainEntityOfPage: toAbsoluteUrl(postUrl),
     url: toAbsoluteUrl(postUrl),
     author: {
@@ -61,7 +62,7 @@ export function BlogPostPage() {
       name: AUTHOR_NAME,
       url: toAbsoluteUrl('/about'),
     },
-    image: [toAbsoluteUrl('/og-image.png')],
+    image: [toAbsoluteUrl(imagePath)],
     keywords: post.tags.join(', '),
     wordCount,
     timeRequired: `PT${post.readingTime}M`,
@@ -74,6 +75,7 @@ export function BlogPostPage() {
         title={`${post.title} | eone.work`}
         description={post.description}
         path={postUrl}
+        imagePath={imagePath}
         type="article"
         publishedTime={publishedTime}
         tags={post.tags}

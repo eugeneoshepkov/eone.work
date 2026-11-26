@@ -21,14 +21,13 @@ function toIsoDate(value) {
   return date.toISOString().split('T')[0];
 }
 
-function getFrontmatterDate(rawContent) {
+function getLastModifiedDate(rawContent) {
   const match = rawContent.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return undefined;
 
-  const [, frontmatter] = match;
-  const dateLine = frontmatter
-    .split('\n')
-    .find((line) => line.trim().startsWith('date:'));
+  const lines = match[1].split('\n');
+  const dateLine = lines.find((line) => line.trim().startsWith('updated:'))
+    ?? lines.find((line) => line.trim().startsWith('date:'));
 
   if (!dateLine) return undefined;
   return dateLine.slice(dateLine.indexOf(':') + 1).trim().replace(/^['"]|['"]$/g, '');
@@ -60,7 +59,7 @@ async function loadBlogRoutes() {
     const filePath = path.join(BLOG_DIR, fileName);
     const slug = fileName.replace('.md', '');
     const rawContent = await readFile(filePath, 'utf8');
-    const date = getFrontmatterDate(rawContent);
+    const date = getLastModifiedDate(rawContent);
 
     entries.push({
       routePath: `/blog/${slug}`,

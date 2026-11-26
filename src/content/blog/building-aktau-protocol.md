@@ -1,18 +1,20 @@
 ---
 title: Building a Game About My Hometown Without Writing Code
-description: How I built a Soviet-era city builder about Aktau using Claude Code, Cursor, and Suno AI - all without touching the code.
+description: Four days to build a browser game about Aktau with AI, then a return to the Caspian waterfront to put the places and small rituals of Shevchenko into the game.
 date: 2026-01-16
+updated: 2026-11-26
+image: https://aktau.eone.work/pictures/aktau-protocol-coast.jpg
 tags: [Engineering, AI, Music]
 featured: true
 ---
 
-![Caspian Atom: The Aktau Protocol - A Soviet-era nuclear city builder](https://aktau.eone.work/pictures/intro-horizontal.png)
+![Aktau Protocol title art, with apartment blocks, the power station and families on the Caspian shore at sunset](https://aktau.eone.work/pictures/aktau-protocol-coast.jpg)
 
-There's no river in Aktau. Almost no rainfall. The city exists because someone in the Soviet Union decided to put a fast breeder reactor in the desert and use it to turn the Caspian Sea into drinking water.
+There's no river in Aktau. Almost no rainfall. I grew up on the shore of the Caspian Sea, and the water that came out of our taps had once been seawater.
 
-The BN-350 ran from 1972 to 1999 and desalinated something like 120,000 cubic meters a day. That's what my hometown was drinking. That's why 150,000 people could live somewhere that should not support them.
+Aktau was already desalinating water in 1963. Ten years later, the BN-350 reactor began generating electricity and supplying heat for desalination. That's where the idea for the game came from. Put a reactor, a water plant and a block of flats on a map, and you can follow the water all the way to someone's kitchen. [The IAEA's account of the Aktau plant](https://www-pub.iaea.org/MTCD/Publications/PDF/P1749_web.pdf#page=38)
 
-I've now made a game about it - a city builder where you run that reactor - and I didn't write any of the code.
+I built the first playable version in four days, and I didn't write any of the code.
 
 ## I'd never built a game
 
@@ -71,16 +73,24 @@ Some of the better features came out of back-and-forth rather than from either s
 
 The thing I didn't expect is how much of game design is emotional pacing rather than systems design. I could get the systems correct and have the game still feel dead, and no amount of describing behavior to a model fixes that, because the problem isn't in the behavior. That's the part I'm still bad at.
 
-## Try it and tell me what's broken
+## Would someone from Shevchenko recognize it?
 
-It's a work in progress. I'm still adding things, balancing resources, and finding edge cases.
+*November 26, 2026*
 
-But it's playable, and I'd rather have feedback than polish.
+When I came back to the game with Codex, I wanted someone who grew up here to recognize a place before clicking on its label. The Abay Palace of Culture in the Fourth Microrayon was an obvious one to put on the starting map. You can see the red letters on its roof. A smaller change I like just as much is the worn path across the sand from the flats to the ice-cream kiosk and down to the beach.
 
-**Play:** [aktau.eone.work](https://aktau.eone.work/)
+![The in-game Abay Palace of Culture, with its shaded entrance, broad steps and red rooftop letters](/projects/aktau-protocol/abay-palace.webp)
 
-**Source:** [GitHub](https://github.com/eugeneoshepkov/aktau-protocol)
+Choose **Walk through Shevchenko** and you can join the queue. “Кто последний?” means “Who's last?” Someone tells you where you stand, and when it's your turn you get a twenty-kopeck plombir in a waffle cup. The price and the detail about kids returning empty bottles for ice-cream money came from a local childhood recollection. [Childhood in Shevchenko, in Lada.kz](https://www.lada.kz/columns/12499-aktau-onischenko.html)
 
-**Technical deep-dive:** [Project page](/projects/aktau-protocol)
+You start the city builder with 50 residents. Click **Build housing** and 25 more move in. That's when the Chronicle offers its first family story. The suitcases are still in the hall and the children are writing Grandma a postcard. The return address is just three numbers. First the microdistrict, then the building, then the flat. [How addresses work in Aktau](https://tengrinews.kz/curious/pochemu-aktau-nazvaniy-ulits-unikalnaya-sistema-adresatsii-540363/)
 
-More on where I'm from: [From Aktau to Vienna](/blog/from-aktau-to-vienna). If something breaks or feels off: [me@eone.work](mailto:me@eone.work)
+![Two children write a postcard at the kitchen table in their new flat in Shevchenko](/projects/aktau-protocol/family-postcard.webp)
+
+*An AI-generated illustration from the Chronicle album I'm testing. Each of the 19 stories has its own illustration, and the reading page links to the historical source.*
+
+One of those sources has a family connection. In a letter, a researcher who worked inland at Melovoye remembered my grandfather helping design a field tower the crew called a “robot.” His published paper has a photograph of one. That's the tower you can visit in the game's optional field season. [The field photograph, figure 7](https://www.ijsred.com/volume3/issue3/IJSRED-V3I3P169.pdf#page=4)
+
+If you grew up in Shevchenko, I'd love to know where you went after school. A name people used for a kiosk or a stretch of beach would give me something to put on the map. [Email me](mailto:me@eone.work)
+
+[Play Aktau Protocol](https://aktau.eone.work/) · [Source on GitHub](https://github.com/eugeneoshepkov/aktau-protocol) · [How the game works](/projects/aktau-protocol) · [From Aktau to Vienna](/blog/from-aktau-to-vienna)

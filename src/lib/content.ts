@@ -75,6 +75,8 @@ export function getBlogPosts(): BlogPost[] {
       title: (metadata.title as string) || slug,
       description: (metadata.description as string) || '',
       date: (metadata.date as string) || '',
+      updated: metadata.updated as string | undefined,
+      image: metadata.image as string | undefined,
       tags: (metadata.tags as string[]) || [],
       content: body,
       readingTime: calculateReadingTime(body),
