@@ -1,5 +1,6 @@
 ---
 title: Kindle Reading Dashboard
+cardDescription: Five years of Kindle data show what I finish and when I read.
 description: Five years of my Kindle reading, rebuilt from Amazon's data export - every hour, every finished book, and when I actually read.
 image: /projects/kindle-reading/overview.webp
 thumbnail: /projects/kindle-reading/thumbnail.webp

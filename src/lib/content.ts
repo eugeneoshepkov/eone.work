@@ -112,6 +112,7 @@ export function getProjects(): Project[] {
       slug,
       title: (metadata.title as string) || slug,
       description: (metadata.description as string) || '',
+      cardDescription: (metadata.cardDescription as string) || undefined,
       image: (metadata.image as string) || undefined,
       thumbnail: (metadata.thumbnail as string) || undefined,
       tags: (metadata.tags as string[]) || [],

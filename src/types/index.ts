@@ -15,6 +15,7 @@ export interface Project {
   slug: string;
   title: string;
   description: string;
+  cardDescription?: string;
   image?: string;
   thumbnail?: string;
   tags: string[];

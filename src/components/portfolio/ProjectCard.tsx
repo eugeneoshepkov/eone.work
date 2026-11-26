@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 import { useInView } from '@/hooks/useInView';
 import type { Project } from '@/types';
 import styles from './ProjectCard.module.css';
@@ -29,10 +29,12 @@ export function ProjectCard({ project, style }: ProjectCardProps) {
         <div className={styles.content}>
           <div className={styles.header}>
             <h3 className={styles.title}>{project.title}</h3>
-            <ArrowUpRightIcon size={18} className={styles.arrow} />
+            <ArrowRightIcon size={18} className={styles.arrow} aria-hidden="true" />
           </div>
 
-          <p className={styles.description}>{project.description}</p>
+          <p className={project.cardDescription ? styles.description : styles.excerpt}>
+            {project.cardDescription ?? project.description}
+          </p>
 
           {project.tags.length > 0 && (
             <div className={styles.tags}>

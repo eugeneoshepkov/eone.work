@@ -1,5 +1,6 @@
 ---
 title: Caspian Atom: The Aktau Protocol
+cardDescription: Build a Caspian waterfront district and keep it supplied through winter.
 description: A browser game about my hometown on the Caspian Sea. Keep a waterfront district supplied, join the ice-cream queue in Shevchenko, or host a field team at Melovoye.
 image: /projects/aktau-protocol/waterfront.webp
 thumbnail: /projects/aktau-protocol/thumbnail.webp
